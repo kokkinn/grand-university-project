@@ -1,10 +1,340 @@
+/********** General **********/
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-body{
+:root {
+    font-size: 16px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    /*gap: 2rem;*/
+    /*height: 100vh;*/
+    margin: 0 auto;
+    padding: 0 1rem;
+    background: linear-gradient(180deg, #defbff 0%, #62599a 100%) no-repeat;
+}
+
+main {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+/*large device query not to grow in width*/
+@media (min-width: 1312px) {
+    body {
+        max-width: 80%;
+    }
+}
+
+/* small device query positioning */
+@media (max-width: 672px) {
+    header {
+        display: none;
+    }
+
+    .triangle {
+        display: none;
+    }
+}
+
+button {
+    padding: 0.5rem 1rem;
+}
+
+/********** Triangles **********/
+
+.triangle {
+    position: absolute;
+    width: clamp(4rem, 12vw, 15rem);
+    height: clamp(4rem, 12vw, 15rem);
+    /*height: 15rem;*/
+    /*width: 15rem;*/
+}
+
+#tr1 {
+    top: 50%;
+    left: 0;
+    rotate: 90deg;
+}
+
+#tr2 {
+    top: 20%;
+    right: 0;
+    rotate: 270deg;
+}
+
+#tr3 {
+    bottom: 0;
+    right: 20%;
+}
+
+/********** Navigation Bar **********/
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: azure;
+    font-size: 2rem;
+    padding: 2rem;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav ul li {
+    flex-grow: 1;
+    white-space: nowrap;
+}
+
+/********** Main Page **********/
+
+.mp-content-container {
+    display: flex;
+    flex-grow: 1;
+
+}
+
+.main-page {
+    display: flex;
+    flex-direction: column;
     height: 100vh;
-    background: linear-gradient(180deg, #DEFBFF 0%, #62599A 100%) no-repeat;
+
+    background-color: green;
+}
+
+.mp-left-container {
+    width: 50%;
+    /*flex-grow: 1;*/
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("images/self_temp.png");
+    background-position: bottom;
+    background-color: blue;
+}
+
+.mp-right-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0;
+    gap: 3rem;
+    width: 50%;
+    flex-grow: 1;
+    background-color: yellow;
+}
+
+.mp-right-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    gap: 32px;
+    flex: none;
+    order: 0;
+    text-align: right;
+    align-self: stretch;
+    flex-grow: 0;
+    background-color: #62599a;
+}
+
+.mp-title {
+    /*white-space: normal;*/
+    font-weight: normal;
+    font-size: 3.5rem;
+}
+
+.mp-subtitle {
+    font-weight: normal;
+    font-size: 2rem;
+}
+
+.mp-buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    /*flex-grow: 1;*/
+    justify-content: flex-end;
+    width: 100%;
+    gap: 2rem;
+}
+
+.mp-button {
+    display: flex;
+    flex-grow: 1;
+    background-color: #defbff;
+    /*width: 10rem;*/
+    /*width: 40%;*/
+    /*margin-left: 2rem;*/
+    height: 3rem;
+    font-size: 1.5rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.mp-icons-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+}
+
+.icon-link {
+    width: 3rem;
+    height: 3rem;
+}
+
+
+/*@media (max-width: 1584px) {*/
+/*  .mp-left-container{*/
+/*    width: 35%;*/
+/*  }*/
+/*}*/
+
+@media (max-width: 1056px) {
+    .prod-name {
+        display: none;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    .mp-left-container {
+        /*width: auto;*/
+        /*flex-grow: 1;*/
+    }
+
+    .mp-right-container {
+        /*width: 18rem;*/
+        /*flex-grow: 1;*/
+    }
+
+}
+
+/*small device query*/
+@media (max-width: 672px) {
+    .mp-left-container {
+        display: none;
+    }
+
+    .mp-buttons-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .mp-button {
+        width: 100%;
+    }
+
+    .mp-icons-container {
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .mp-right-text-container {
+        text-align: center;
+    }
+
+}
+
+/********** Profile Page **********/
+.profile-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.pp-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-grow: 1;
+    background-color: green;
+    height: 50%;
+}
+
+.pp-skills-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 50%;
+    padding: 2rem 0;
+    flex-grow: 1;
+    gap: 1rem;
+    background-color: yellow;
+}
+
+.pp-title {
+    font-size: 4rem;
+}
+
+.pp-text {
+    font-size: 2rem;
+}
+
+.pp-sc-row{
+    display: flex;
+    /*flex-wrap: wrap;*/
+    flex-grow: 1;
+    align-items: center;
+    gap: 3rem;
+
+    width: 100%;
+}
+.pp-sc-row1 {
+    background-color: azure;
+}
+
+.pp-sc-row2 {
+    background-color: blue;
+}
+
+.skill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    height: 10rem;
+    background-color: #62599a;
+    font-size: 3rem;
+}
+
+.line {
+    background-color: black;
+    flex-grow: 1;
+    height: 2px;
+    /*width: auto;*/
+}
+
+@media (max-width: 672px) {
+    .pp-sc-row{
+        gap: clamp(1rem, 5vw, 10rem);
+        justify-content: space-between;
+    }
+
+    .line {
+        display: none;
+    }
+
+    .skill{
+        width: clamp(2rem, 30vw, 30rem);
+        height: clamp(2rem, 30vw, 30rem);
+        font-size: clamp(1rem, 7vw, 10rem);
+    }
 }
