@@ -5,80 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Grand Uni Project" />
     <link href="style.css" type="text/css" rel="stylesheet" />
-    <script src="script.js" rel="script" defer></script>
+    <script src="js/script.js" rel="script" defer></script>
   </head>
   <body>
-    <img
-      src="images/triangle_temp.png"
-      alt="triangle"
-      id="tr1"
-      class="triangle"
-    />
-    <img
-      src="images/triangle_temp.png"
-      alt="triangle"
-      id="tr2"
-      class="triangle"
-    />
-    <img
-      src="images/triangle_temp.png"
-      alt="triangle"
-      id="tr3"
-      class="triangle"
-    />
+    <a class="button-gotop button-gt-hidden" href="#section-mainpage">Go to top</a>
+    <div id="tr1" class="triangle"></div>
+    <div id="tr2" class="triangle"></div>
+    <div id="tr3" class="triangle"></div>
 
     <main>
-      <section class="main-page">
+      <section class="section-mainpage" id="section-mainpage">
         <header>
-          <nav>
-            <span class="prod-name">My Grand Uni Project</span>
+          <nav class="noselect">
+            <span class="prod-name">Grand Uni Project</span>
             <ul>
-              <li>Contact me</li>
-              <li>Check me</li>
-              <li>Check your mom</li>
+              <li><a href="#section-projects">Projects</a></li>
+              <li><a href="#section-unitasks">University tasks</a></li>
+              <li><a href="#section-profile">Profile</a></li>
             </ul>
           </nav>
         </header>
         <div class="mp-content-container">
           <div class="mp-left-container"></div>
           <div class="mp-right-container">
-
             <div class="mp-right-text-container">
               <h1 class="mp-title">I am George Kokkin</h1>
               <h2 class="mp-subtitle">
                 Student of Odesa <br />National Mechnikova University
               </h2>
-              <div class="mp-buttons-container">
+              <div class="mp-buttons-container noselect">
                 <a class="mp-button">About me</a>
                 <a class="mp-button">Contact me</a>
               </div>
-              <div class="mp-icons-container">
-                <img
-                  class="icon-link"
-                  src="images/icons/instagram_logo.png"
-                  alt="instagram"
-                />
-                <img
-                  class="icon-link"
-                  src="images/icons/linkedin_logo.png"
-                  alt="linkedin"
-                />
-                <img
-                  class="icon-link"
-                  src="images/icons/github_logo.png"
-                  alt="github"
-                />
-                <img
-                  class="icon-link"
-                  src="images/icons/mail_logo.png"
-                  alt="email"
-                />
+              <div class="mp-icons-container noselect">
+                <a target="_blank" href="https://www.instagram.com/kokkinn/">
+                  <img
+                    class="icon-link"
+                    src="images/icons/instagram_logo.png"
+                    alt="instagram"
+                  />
+                </a>
+                <a target="_blank" href="https://www.linkedin.com/in/kokkinn/">
+                  <img
+                    class="icon-link"
+                    src="images/icons/linkedin_logo.png"
+                    alt="linkedin"
+                  />
+                </a>
+                <a target="_blank" href="https://github.com/kokkinn">
+                  <img
+                    class="icon-link"
+                    src="images/icons/github_logo.png"
+                    alt="github"
+                  />
+                </a>
+                <a
+                  href="mailto:kokkin.george@gmail.com?subject=Letter to George&amp;body=---"
+                >
+                  <img
+                    class="icon-link"
+                    src="images/icons/mail_logo.png"
+                    alt="email"
+                  />
+                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section class="profile-page">
+      <section class="profile-page" id="section-profile">
         <div class="pp-text-container">
           <h2 class="section-title">Profile</h2>
           <p class="pp-text">
@@ -91,7 +86,7 @@
             culpa qui officia deserunt mollit anim id est laborum."
           </p>
         </div>
-        <div class="pp-skills-container">
+        <div class="pp-skills-container noselect">
           <div class="pp-sc-row pp-sc-row1">
             <div class="skill">FastApi</div>
             <div class="skill">Django</div>
@@ -106,13 +101,13 @@
           </div>
         </div>
       </section>
-      <section class="section-experience">
+      <section class="section-experience" id="section-projects">
         <div class="section-header">
-          <h2 class="section-title">My experience</h2>
+          <h2 class="section-title">Experience</h2>
         </div>
         <div class="list-projects">
           <article class="item-project">
-            <div class="item-project-image-wrapper">
+            <div class="item-project-image-wrapper noselect">
               <a href="https://words-learn-helper.com" target="_blank">
                 <img
                   class="item-project-image"
@@ -135,7 +130,7 @@
             </p>
           </article>
           <article class="item-project">
-            <div class="item-project-image-wrapper">
+            <div class="item-project-image-wrapper noselect">
               <a href="https://kokkinn.com/sw-app" target="_blank">
                 <img
                   class="item-project-image"
@@ -154,7 +149,7 @@
             </p>
           </article>
           <article class="item-project">
-            <div class="item-project-image-wrapper">
+            <div class="item-project-image-wrapper noselect">
               <a
                 href="https://github.com/kokkinn/Web-Quiz-Django"
                 target="_blank"
@@ -179,89 +174,94 @@
           </article>
         </div>
       </section>
-      <section class="unitasks-page">
+      <section class="section-unitasks" id="section-unitasks">
+<!--        <div id="tr4" class="triangle"></div>-->
+<!--        <div id="tr5" class="triangle"></div>-->
+<!--        <div id="tr6" class="triangle"></div>-->
         <div class="section-header">
-          <h2 class="section-title">My Uni Projects</h2>
+          <h2 class="section-title">Uni Projects</h2>
         </div>
-        <div class="eolymp-container">
-          <div class="eolymp-list">
+        <div class="unitasks-content">
+          <div class="eolymp-container">
             <h3 class="subtitle" style="text-align: center">Eolymp</h3>
-            <div class="ec-item">
-              <button class="ec-button">Contest 1</button>
-              <div class="ec-item-inner">
-                <div class="problem">Problem 1</div>
-                <div class="problem">Problem 2</div>
-                <div class="problem">Problem 3</div>
-                <div class="problem">Problem 3</div>
-                <div class="problem">Problem 3</div>
+            <div class="eolymp-contest-list">
+              <div class="eolymp-contest">
+                <button class="ec-button">Contest 1</button>
+                <div class="eolymp-contest-inner">
+                  <div class="ec-contest-problem">ec-contest-problem 1</div>
+                  <div class="ec-contest-problem">ec-contest-problem 2</div>
+                  <div class="ec-contest-problem">ec-contest-problem 3</div>
+                  <div class="ec-contest-problem">ec-contest-problem 3</div>
+                  <div class="ec-contest-problem">ec-contest-problem 3</div>
+                </div>
+              </div>
+              <div class="eolymp-contest">
+                <button class="ec-button">Contest 2</button>
+                <div class="eolymp-contest-inner">
+                  <div class="ec-contest-problem">ec-contest-problem 1</div>
+                  <div class="ec-contest-problem">ec-contest-problem 2</div>
+                  <div class="ec-contest-problem">ec-contest-problem 3</div>
+                  <div class="ec-contest-problem">ec-contest-problem 3</div>
+                  <div class="ec-contest-problem">ec-contest-problem 3</div>
+                </div>
+              </div>
+              <div class="eolymp-contest">
+                <button class="ec-button">Contest 3</button>
+                <div class="eolymp-contest-inner">
+                  <div class="ec-contest-problem">ec-contest-problem 1</div>
+                  <div class="ec-contest-problem">ec-contest-problem 2</div>
+                  <div class="ec-contest-problem">ec-contest-problem 3</div>
+                  <div class="ec-contest-problem">ec-contest-problem 3</div>
+                  <div class="ec-contest-problem">ec-contest-problem 3</div>
+                </div>
+              </div>
+              <div class="eolymp-contest">
+                <button class="ec-button">Contest 4</button>
+                <div class="eolymp-contest-inner">
+                  <div class="ec-contest-problem">ec-contest-problem 1</div>
+                  <div class="ec-contest-problem">ec-contest-problem 2</div>
+                  <div class="ec-contest-problem">ec-contest-problem 3</div>
+                  <div class="ec-contest-problem">ec-contest-problem 3</div>
+                  <div class="ec-contest-problem">ec-contest-problem 3</div>
+                </div>
+              </div>
+              <div class="eolymp-contest">
+                <button class="ec-button">Contest 5</button>
+                <div class="eolymp-contest-inner">
+                  <div class="ec-contest-problem">ec-contest-problem 1</div>
+                  <div class="ec-contest-problem">ec-contest-problem 2</div>
+                  <div class="ec-contest-problem">ec-contest-problem 3</div>
+                  <div class="ec-contest-problem">ec-contest-problem 3</div>
+                  <div class="ec-contest-problem">ec-contest-problem 3</div>
+                </div>
+              </div>
+              <div class="eolymp-contest">
+                <button class="ec-button">Contest 6</button>
+                <div class="eolymp-contest-inner">
+                  <div class="ec-contest-problem">ec-contest-problem 1</div>
+                  <div class="ec-contest-problem">ec-contest-problem 2</div>
+                  <div class="ec-contest-problem">ec-contest-problem 3</div>
+                </div>
+              </div>
+              <div class="eolymp-contest">
+                <button class="ec-button">Contest 7</button>
+                <div class="eolymp-contest-inner">
+                  <div class="ec-contest-problem">ec-contest-problem 1</div>
+                  <div class="ec-contest-problem">ec-contest-problem 2</div>
+                  <div class="ec-contest-problem">ec-contest-problem 3</div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="ec-item">
-            <button class="ec-button">Contest 2</button>
-            <div class="ec-item-inner">
-              <div class="problem">Problem 1</div>
-              <div class="problem">Problem 2</div>
-              <div class="problem">Problem 3</div>
-              <div class="problem">Problem 3</div>
-              <div class="problem">Problem 3</div>
-            </div>
-          </div>
-          <div class="ec-item">
-            <button class="ec-button">Contest 3</button>
-            <div class="ec-item-inner">
-              <div class="problem">Problem 1</div>
-              <div class="problem">Problem 2</div>
-              <div class="problem">Problem 3</div>
-              <div class="problem">Problem 3</div>
-              <div class="problem">Problem 3</div>
-            </div>
-          </div>
-          <div class="ec-item">
-            <button class="ec-button">Contest 4</button>
-            <div class="ec-item-inner">
-              <div class="problem">Problem 1</div>
-              <div class="problem">Problem 2</div>
-              <div class="problem">Problem 3</div>
-              <div class="problem">Problem 3</div>
-              <div class="problem">Problem 3</div>
-            </div>
-          </div>
-          <div class="ec-item">
-            <button class="ec-button">Contest 5</button>
-            <div class="ec-item-inner">
-              <div class="problem">Problem 1</div>
-              <div class="problem">Problem 2</div>
-              <div class="problem">Problem 3</div>
-              <div class="problem">Problem 3</div>
-              <div class="problem">Problem 3</div>
-            </div>
-          </div>
-          <div class="ec-item">
-            <button class="ec-button">Contest 6</button>
-            <div class="ec-item-inner">
-              <div class="problem">Problem 1</div>
-              <div class="problem">Problem 2</div>
-              <div class="problem">Problem 3</div>
-            </div>
-          </div>
-          <div class="ec-item">
-            <button class="ec-button">Contest 7</button>
-            <div class="ec-item-inner">
-              <div class="problem">Problem 1</div>
-              <div class="problem">Problem 2</div>
-              <div class="problem">Problem 3</div>
-            </div>
-          </div>
-        </div>
 
-        <div class="web-essentials-container">
-          <h3 class="subtitle" style="text-align: center">Web Essentials</h3>
-          <div class="we-projects">
-            <div class="we-project">Portfolio</div>
-            <div class="we-project">Calculator</div>
-            <div class="we-project">Schedule</div>
-            <div class="we-project">Ball</div>
+          <div class="web-essentials-container noselect">
+            <h3 class="subtitle" style="text-align: center">Web Essentials</h3>
+            <div class="we-projects">
+              <div class="we-project">Portfolio</div>
+              <div class="we-project">Calculator</div>
+              <div class="we-project">Schedule</div>
+              <div class="we-project">Ball</div>
+            </div>
           </div>
         </div>
       </section>
@@ -270,7 +270,7 @@
         <div class="section-header">
           <h2 class="section-title">Education</h2>
         </div>
-        <div class="list-education">
+        <div class="education-items-list">
           <a
             href="https://onu.edu.ua/en/"
             class="item-education"
@@ -299,6 +299,17 @@
         </div>
       </section>
     </main>
-    <footer></footer>
+    <footer>
+      <p>
+        All rights are reserved by myself. This is non-commercial non-profit
+        organisation. This is just a sample web-site to show HTML, CSS, JS of an
+        individual. In the nearest future the website will be rewritten with
+        React. If a visitor has any questions or complaints, please contact the
+        manager via email:
+        <span style="text-decoration: underline">yt.kostolom@gmail.com</span> or
+        any other social media accounts left above. <br /><br />
+        c 2023 kokkinn.com
+      </p>
+    </footer>
   </body>
 </html>
