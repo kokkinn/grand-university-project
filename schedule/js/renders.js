@@ -75,30 +75,33 @@ function renderTimeInTable(tdsWithTime, utc_offset) {
  * @param currentLessonNode HTML node to append text (about lesson)
  */
 function renderCurrentLesson(currentLessonNode) {
-  currentLessonNode.current = null;
-  const a = document.querySelectorAll(
-    `.${DAY_NAMES[new Date().getDay()]}.td-lesson-time`
+  const removePreviousTimeCellHighlight = (ln) => {
+    ln.current.parentElement.style.removeProperty("background-color");
+    ln.current.parentElement.style.removeProperty("color");
+    ln.current = null;
+  };
+
+  let isLesson = false;
+  const timeCellsForCurrentWeekDay = document.querySelectorAll(
+    `.${DAY_NAMES[new Date().getDay()].toLowerCase()}.td-lesson-time`
   );
-  a.forEach((timeCell) => {
+  timeCellsForCurrentWeekDay.forEach((timeCell) => {
     if (
       checkTimeIsInRange(
         timeCell.parentElement.dataset.st,
         timeCell.parentElement.dataset.fn
       )
     ) {
-      if (currentLessonNode.current !== null) {
-        currentLessonNode.current.parentElement.style.removeProperty(
-          "background-color"
-        );
-        currentLessonNode.current.parentElement.style.removeProperty("color");
+      isLesson = true;
 
-      }
+      if (currentLessonNode.current != null)
+        removePreviousTimeCellHighlight(currentLessonNode);
       timeCell.parentElement.style.backgroundColor = "#785964";
       timeCell.parentElement.style.color = "#eed0d0";
       currentLessonNode.current = timeCell;
       let string;
       if (decodeURIComponent(timeCell.parentElement.dataset.sn) === "-") {
-        string = "Break time.";
+        string = "No lesson!!!";
       } else {
         string = `Current lesson is ${decodeURIComponent(
           timeCell.parentElement.dataset.sn
@@ -107,8 +110,21 @@ function renderCurrentLesson(currentLessonNode) {
       refreshCurrLessonNode(`${string}`);
     }
   });
-  if (currentLessonNode.current == null) {
-    refreshCurrLessonNode("Go ahead and relax.");
+  if (isLesson === false) {
+    if (currentLessonNode.current != null)
+      removePreviousTimeCellHighlight(currentLessonNode);
+
+    if (
+      checkTimeIsInRange(
+        timeCellsForCurrentWeekDay[0].parentElement.dataset.st,
+        timeCellsForCurrentWeekDay[timeCellsForCurrentWeekDay.length - 1]
+          .parentElement.dataset.fn
+      )
+    ) {
+      refreshCurrLessonNode("It's break time :>");
+    } else {
+      refreshCurrLessonNode("No more university for today !!!");
+    }
   }
 }
 

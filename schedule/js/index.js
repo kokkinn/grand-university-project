@@ -30,4 +30,4 @@ window.setInterval(() => {
 renderCurrentLesson(currentLessonNode, currentLessonString);
 window.setInterval(() => {
   renderCurrentLesson(currentLessonNode);
-}, 10000);
+}, 5000);

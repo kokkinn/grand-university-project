@@ -4,11 +4,19 @@
     <title>George Kokkin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Grand Uni Project" />
-    <link href="style.css" type="text/css" rel="stylesheet" />
-    <script src="js/script.js" rel="script" defer></script>
+    <link href="index.css" type="text/css" rel="stylesheet" />
+    <script
+      src="curriculum_vitae/js/script.js"
+      rel="script"
+      type="module"
+      defer
+    ></script>
+    <!--    <script src="js/render.js" rel="script" type="module"></script>-->
   </head>
   <body>
-    <a class="button-gotop button-gt-hidden" href="#section-mainpage">Go to top</a>
+    <a class="button-gotop button-gt-hidden" href="#section-mainpage"
+      >Go to top</a
+    >
     <div id="tr1" class="triangle"></div>
     <div id="tr2" class="triangle"></div>
     <div id="tr3" class="triangle"></div>
@@ -41,21 +49,21 @@
                 <a target="_blank" href="https://www.instagram.com/kokkinn/">
                   <img
                     class="icon-link"
-                    src="images/icons/instagram_logo.png"
+                    src="curriculum_vitae/images/icons/instagram_logo.png"
                     alt="instagram"
                   />
                 </a>
                 <a target="_blank" href="https://www.linkedin.com/in/kokkinn/">
                   <img
                     class="icon-link"
-                    src="images/icons/linkedin_logo.png"
+                    src="curriculum_vitae/images/icons/linkedin_logo.png"
                     alt="linkedin"
                   />
                 </a>
                 <a target="_blank" href="https://github.com/kokkinn">
                   <img
                     class="icon-link"
-                    src="images/icons/github_logo.png"
+                    src="curriculum_vitae/images/icons/github_logo.png"
                     alt="github"
                   />
                 </a>
@@ -64,7 +72,7 @@
                 >
                   <img
                     class="icon-link"
-                    src="images/icons/mail_logo.png"
+                    src="curriculum_vitae/images/icons/mail_logo.png"
                     alt="email"
                   />
                 </a>
@@ -112,7 +120,7 @@
                 <img
                   class="item-project-image"
                   id="img-wlh"
-                  src="images/icons/wlh_logo.png"
+                  src="curriculum_vitae/images/icons/wlh_logo.png"
                   alt="wlh_logo"
                 />
               </a>
@@ -135,7 +143,7 @@
                 <img
                   class="item-project-image"
                   id="img-swapp"
-                  src="images/icons/react_logo.png"
+                  src="curriculum_vitae/images/icons/react_logo.png"
                   alt="react_logo"
                 />
               </a>
@@ -151,13 +159,37 @@
           <article class="item-project">
             <div class="item-project-image-wrapper noselect">
               <a
+                href="https://github.com/kokkinn/requests-management-system"
+                target="_blank"
+              >
+                <img
+                  class="item-project-image"
+                  id="img-rms"
+                  src="curriculum_vitae/images/icons/rms_logo.png"
+                  alt="react_logo"
+                />
+              </a>
+            </div>
+            <p class="item-project-name">Requests Management System</p>
+            <p class="item-project-text">
+              A tool for managing requests got from html. The request consists
+              of name, surname, email and optional question. The admin is able
+              either to monitor sent requests and reply manually or set up an
+              auto response in case of question absence (email). The app
+              consists of an API (FastAPI) and admin panel (React). Everything
+              is stored on a Postgres database.
+            </p>
+          </article>
+          <article class="item-project">
+            <div class="item-project-image-wrapper noselect">
+              <a
                 href="https://github.com/kokkinn/Web-Quiz-Django"
                 target="_blank"
               >
                 <img
                   class="item-project-image"
                   id="img-wq"
-                  src="images/icons/webquiz_logo.png"
+                  src="curriculum_vitae/images/icons/webquiz_logo.png"
                   alt="hillel_logo"
                 />
               </a>
@@ -175,92 +207,27 @@
         </div>
       </section>
       <section class="section-unitasks" id="section-unitasks">
-<!--        <div id="tr4" class="triangle"></div>-->
-<!--        <div id="tr5" class="triangle"></div>-->
-<!--        <div id="tr6" class="triangle"></div>-->
+        <!--        <div id="tr4" class="triangle"></div>-->
+        <!--        <div id="tr5" class="triangle"></div>-->
+        <!--        <div id="tr6" class="triangle"></div>-->
         <div class="section-header">
-          <h2 class="section-title">Uni Projects</h2>
+          <h2 class="section-title">University Projects</h2>
         </div>
         <div class="unitasks-content">
           <div class="eolymp-container">
-            <h3 class="subtitle" style="text-align: center">Eolymp</h3>
-            <div class="eolymp-contest-list">
-              <div class="eolymp-contest">
-                <button class="ec-button">Contest 1</button>
-                <div class="eolymp-contest-inner">
-                  <div class="ec-contest-problem">ec-contest-problem 1</div>
-                  <div class="ec-contest-problem">ec-contest-problem 2</div>
-                  <div class="ec-contest-problem">ec-contest-problem 3</div>
-                  <div class="ec-contest-problem">ec-contest-problem 3</div>
-                  <div class="ec-contest-problem">ec-contest-problem 3</div>
-                </div>
-              </div>
-              <div class="eolymp-contest">
-                <button class="ec-button">Contest 2</button>
-                <div class="eolymp-contest-inner">
-                  <div class="ec-contest-problem">ec-contest-problem 1</div>
-                  <div class="ec-contest-problem">ec-contest-problem 2</div>
-                  <div class="ec-contest-problem">ec-contest-problem 3</div>
-                  <div class="ec-contest-problem">ec-contest-problem 3</div>
-                  <div class="ec-contest-problem">ec-contest-problem 3</div>
-                </div>
-              </div>
-              <div class="eolymp-contest">
-                <button class="ec-button">Contest 3</button>
-                <div class="eolymp-contest-inner">
-                  <div class="ec-contest-problem">ec-contest-problem 1</div>
-                  <div class="ec-contest-problem">ec-contest-problem 2</div>
-                  <div class="ec-contest-problem">ec-contest-problem 3</div>
-                  <div class="ec-contest-problem">ec-contest-problem 3</div>
-                  <div class="ec-contest-problem">ec-contest-problem 3</div>
-                </div>
-              </div>
-              <div class="eolymp-contest">
-                <button class="ec-button">Contest 4</button>
-                <div class="eolymp-contest-inner">
-                  <div class="ec-contest-problem">ec-contest-problem 1</div>
-                  <div class="ec-contest-problem">ec-contest-problem 2</div>
-                  <div class="ec-contest-problem">ec-contest-problem 3</div>
-                  <div class="ec-contest-problem">ec-contest-problem 3</div>
-                  <div class="ec-contest-problem">ec-contest-problem 3</div>
-                </div>
-              </div>
-              <div class="eolymp-contest">
-                <button class="ec-button">Contest 5</button>
-                <div class="eolymp-contest-inner">
-                  <div class="ec-contest-problem">ec-contest-problem 1</div>
-                  <div class="ec-contest-problem">ec-contest-problem 2</div>
-                  <div class="ec-contest-problem">ec-contest-problem 3</div>
-                  <div class="ec-contest-problem">ec-contest-problem 3</div>
-                  <div class="ec-contest-problem">ec-contest-problem 3</div>
-                </div>
-              </div>
-              <div class="eolymp-contest">
-                <button class="ec-button">Contest 6</button>
-                <div class="eolymp-contest-inner">
-                  <div class="ec-contest-problem">ec-contest-problem 1</div>
-                  <div class="ec-contest-problem">ec-contest-problem 2</div>
-                  <div class="ec-contest-problem">ec-contest-problem 3</div>
-                </div>
-              </div>
-              <div class="eolymp-contest">
-                <button class="ec-button">Contest 7</button>
-                <div class="eolymp-contest-inner">
-                  <div class="ec-contest-problem">ec-contest-problem 1</div>
-                  <div class="ec-contest-problem">ec-contest-problem 2</div>
-                  <div class="ec-contest-problem">ec-contest-problem 3</div>
-                </div>
-              </div>
-            </div>
+            <h3 class="subtitle" style="text-align: center">Eolymp tasks</h3>
+            <div class="eolymp-contest-list"></div>
           </div>
 
           <div class="web-essentials-container noselect">
-            <h3 class="subtitle" style="text-align: center">Web Essentials</h3>
+            <h3 class="subtitle" style="text-align: center">Web Essentials tasks</h3>
             <div class="we-projects">
-              <div class="we-project">Portfolio</div>
-              <div class="we-project">Calculator</div>
-              <div class="we-project">Schedule</div>
-              <div class="we-project">Ball</div>
+              <a target="_blank" href="" class="we-project">Portfolio</a>
+              <a class="we-project">Calculator</a>
+              <a target="_blank" href="/schedule" class="we-project"
+                >Schedule</a
+              >
+              <a class="we-project">Ball</a>
             </div>
           </div>
         </div>
@@ -302,13 +269,12 @@
     <footer>
       <p>
         All rights are reserved by myself. This is non-commercial non-profit
-        organisation. This is just a sample web-site to show HTML, CSS, JS of an
-        individual. In the nearest future the website will be rewritten with
-        React. If a visitor has any questions or complaints, please contact the
-        manager via email:
-        <span style="text-decoration: underline">yt.kostolom@gmail.com</span> or
-        any other social media accounts left above. <br /><br />
-        c 2023 kokkinn.com
+        website. This is just my homework for university. For any question or
+        complaints, please do not hesitate to write me:
+        <span style="text-decoration: underline">kokkin.george@gmail.com</span>.
+        You can also contact me via any other social media accounts left above.
+        <br /><br />
+        Copyright &copy 2023 kokkinn.com. All Rights Reserved.
       </p>
     </footer>
   </body>

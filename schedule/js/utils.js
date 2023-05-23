@@ -14,8 +14,15 @@ function timeOfDayApplyUTC(time, offsetMinutes) {
   const hours = Math.floor(res / 3600);
   const minutes = (res - hours * 3600) / 60;
   return `${padding(hours)}:${padding(minutes)}`;
+  // TODO simplify code and maths expressions
 }
 
+/**
+ * Checks if current time (for local machine) belongs to a range of given starting and ending time
+ * @param start starting date
+ * @param end ending date
+ * @return {boolean} true for current time is in range, else false
+ */
 function checkTimeIsInRange(start, end) {
   const currentDate = new Date();
   let startDate = new Date(currentDate.getTime());
@@ -29,5 +36,5 @@ function checkTimeIsInRange(start, end) {
   endDate.setSeconds(0);
   return startDate < currentDate && endDate > currentDate;
 }
-const res = timeOfDayApplyUTC("00:20", 10);
-export { timeOfDayApplyUTC, checkTimeIsInRange };
+
+export { checkTimeIsInRange, timeOfDayApplyUTC };
