@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Calculator Kokkin</title>
+    <script src="js/index.js" type="module" defer></script>
+  </head>
+  <body>
+    <div id="root">
+      Expression here
+      <div id="expression"></div>
+      Number here
+      <div id="number"></div>
+      <button id="negate">+-</button>
+      <!--      TODO render buttons dynamically with constants-->
+      <button class="ns-button" id="button-dec" data-ns="dec">DEC</button>
+      <button class="ns-button" data-ns="hex">HEX</button>
+      <button class="ns-button" data-ns="bin">BIN</button>
+      <button class="ns-button" data-ns="oct">OCT</button>
+      <button id="button-ce">CE</button>
+      <button id="button-c">C</button>
+      <div></div>
+      Decimal
+      <div id="number-dec"></div>
+      Hex
+      <div id="number-hex"></div>
+      Binary
+      <div id="number-bin"></div>
+      Octal
+      <div id="number-oct"></div>
+      <br>
+      Current key
+      <div id="current-key"></div>
+    </div>
+  </body>
+</html>
