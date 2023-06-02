@@ -9,33 +9,140 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Calculator Kokkin</title>
     <script src="js/index.js" type="module" defer></script>
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
     <div id="root">
-      Expression here
-      <div id="expression"></div>
-      Number here
-      <div id="number"></div>
-      <button id="negate">+-</button>
-      <!--      TODO render buttons dynamically with constants-->
-      <button class="ns-button" id="button-dec" data-ns="dec">DEC</button>
-      <button class="ns-button" data-ns="hex">HEX</button>
-      <button class="ns-button" data-ns="bin">BIN</button>
-      <button class="ns-button" data-ns="oct">OCT</button>
-      <button id="button-ce">CE</button>
-      <button id="button-c">C</button>
-      <div></div>
-      Decimal
-      <div id="number-dec"></div>
-      Hex
-      <div id="number-hex"></div>
-      Binary
-      <div id="number-bin"></div>
-      Octal
-      <div id="number-oct"></div>
-      <br>
-      Current key
-      <div id="current-key"></div>
+      <div id="app-head">
+        <div id="ah-title-icon">
+          <img
+            src="images/png/claculator_icon.png"
+            width="15px"
+            height="15px"
+          />
+          <div>Calculator</div>
+        </div>
+        <div id="ah-buttons">
+          <button id="ah-tray">―</button>
+          <button id="ah-full">▢</button>
+          <button id="ah-close">✕</button>
+        </div>
+      </div>
+      <div id="app-body">
+        <div id="calculator-container">
+          <div id="type-selection-history">
+            <div id="type-selection">
+              <img src="images/svg/three_stripes.svg" width="20" alt="=" />
+              <div>Programmer</div>
+            </div>
+            <div id="history-toggle-button">
+              <img src="images/svg/clock.svg" />
+            </div>
+          </div>
+          <div id="app-calculations">
+            <div id="expression"></div>
+            <div id="number"></div>
+          </div>
+
+          <div id="ns-select">
+            <div class="ns-select-choice" data-ns="dec">
+              <div class="ns-button" id="button-dec">DEC</div>
+              <div id="number-dec"></div>
+            </div>
+            <div class="ns-select-choice" data-ns="hex">
+              <div class="ns-button">HEX</div>
+              <div id="number-hex"></div>
+            </div>
+            <div class="ns-select-choice" data-ns="bin">
+              <div class="ns-button">BIN</div>
+              <div id="number-bin"></div>
+            </div>
+            <div class="ns-select-choice" data-ns="oct">
+              <div class="ns-button">OCT</div>
+              <div id="number-oct"></div>
+            </div>
+          </div>
+          <div id="random-settings">
+            <div class="random-setting">
+              <img
+                src="images/svg/3x3plus1.svg"
+                width="30"
+                alt="3x3plus1icon"
+              />
+            </div>
+            <div class="random-setting">
+              <img
+                src="images/svg/2x2plus1.svg"
+                width="30"
+                alt="2x2plus1icon"
+              />
+            </div>
+            <div class="random-setting">
+              <div>QWORD</div>
+            </div>
+            <div class="random-setting">
+              <div>MS</div>
+            </div>
+            <div class="random-setting">
+              <div>M*</div>
+            </div>
+          </div>
+
+          <div id="buttons-grid">
+            <div class="display-button" data-value="A">A</div>
+            <div class="display-button" data-value="arrow"><<</div>
+            <div class="display-button" data-value="arrow">>></div>
+            <div class="display-button" id="button-clear-input" data-value="c">CE</div>
+            <div class="display-button" data-value="Backspace">
+              <img
+                width="15"
+                src="images/svg/backspace_icon.svg"
+                alt="Backspace"
+              />
+            </div>
+            <div class="display-button" data-value="B">B</div>
+            <div class="display-button" data-value="(">(</div>
+            <div class="display-button" data-value=")">)</div>
+            <div class="display-button" data-value="%">%</div>
+            <div class="display-button" data-value="%">÷</div>
+            <div class="display-button" data-value="C">C</div>
+            <div class="display-button" data-value="7">7</div>
+            <div class="display-button" data-value="8">8</div>
+            <div class="display-button" data-value="9">9</div>
+            <div class="display-button" data-value="*">&times</div>
+            <div class="display-button" data-value="D">D</div>
+            <div class="display-button" data-value="4">4</div>
+            <div class="display-button" data-value="5">5</div>
+            <div class="display-button" data-value="6">6</div>
+            <div class="display-button" data-value="-">-</div>
+            <div class="display-button" data-value="E">E</div>
+            <div class="display-button" data-value="1">1</div>
+            <div class="display-button" data-value="2">2</div>
+            <div class="display-button" data-value="3">3</div>
+            <div class="display-button" data-value="+">+</div>
+            <div class="display-button" data-value="F">F</div>
+
+            <div class="display-button" id="negate" data-value="negate">
+              &plusmn
+            </div>
+            <div class="display-button" data-value="0">0</div>
+            <div class="display-button" data-value=".">.</div>
+            <div class="display-button" data-value="=">=</div>
+          </div>
+        </div>
+        <div id="history-container">
+          <div>History</div>
+          <div id="history-list"></div>
+          <div id="clear-history-container">
+            <img
+              id="clear-history"
+              src="images/svg/bin.svg"
+              width="25"
+              alt="bin"
+            />
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

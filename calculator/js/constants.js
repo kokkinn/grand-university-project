@@ -1,5 +1,6 @@
-const NUMBER_FIELD_INPUTS = "1234567890abcdefABCDEF()";
+const NUMBER_FIELD_INPUTS = "1234567890abcdefABCDEF";
 const NUMBER_FIELD_OPERATORS = "+-/*%";
+const PARENTHESIS = "()"
 const COMMON_ALLOWED_KEYS = "+-*/%=()10Cc";
 const CALCULATION_SYSTEM_TYPES = {
   hex: { short: "hex", full: "Hexadecimal", num: 16 },
@@ -20,4 +21,5 @@ export {
   NUMBER_FIELD_OPERATORS,
   ALLOWED_KEYS,
   CALCULATION_SYSTEM_TYPES,
+    PARENTHESIS
 };
