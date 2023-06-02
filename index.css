@@ -745,7 +745,7 @@ nav a {
   width: clamp(8rem, 10vw, 20rem);
   height: clamp(8rem, 10vw, 20rem);
   font-size: clamp(1.5rem, 2.2vw, 2rem);
-  border-radius: 5rem;
+  border-radius: 100%;
   text-decoration: none;
   color: var(--secondary-dark);
   font-style: italic;
