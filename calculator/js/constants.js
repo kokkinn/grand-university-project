@@ -1,11 +1,11 @@
-const NUMBER_FIELD_INPUTS = "1234567890abcdefABCDEF";
+const NUMBER_FIELD_INPUTS = "1234567890abcdefABCDEF.";
 const NUMBER_FIELD_OPERATORS = "+-/*%";
 const PARENTHESIS = "()";
-const COMMON_ALLOWED_KEYS = "+-*/%=()10Cc";
+const COMMON_ALLOWED_KEYS = "+-*/%=()10Cc.";
 const CALCULATION_SYSTEM_TYPES = {
   hex: { short: "hex", full: "Hexadecimal", num: 16, prefix: "0x" },
   dec: { short: "dec", full: "Decimal", num: 10, prefix: "0d" },
-  bin: { short: "bin", full: "Binary", num: 2, prefix: "bo" },
+  bin: { short: "bin", full: "Binary", num: 2, prefix: "0b" },
   oct: { short: "oct", full: "Octal", num: 8, prefix: "0o" },
 };
 const ALLOWED_KEYS = {

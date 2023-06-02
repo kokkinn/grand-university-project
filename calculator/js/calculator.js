@@ -187,7 +187,9 @@ export class Calculator {
   }
 
   handleInput(key) {
+
     // TODO bug, for equal sign -x--y gives error
+    // TODO more constants
 
     // ----- FUNCTIONS -----
 

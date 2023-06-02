@@ -22,14 +22,6 @@ hist1.init();
 calc1.subscribe(hist1.addHistoryEntry);
 calc1.init();
 
-// window.addEventListener("resize", () => {});
-// onresize = () => {
-//   if (window.innerWidth < 800) {
-//     hist1.closeHistory();
-//   } else {
-//     hist1.openHistory();
-//   }
-// };
 
 window.onerror = function myErrorHandler(errorMsg) {
   alert("Error occured: " + errorMsg); //or any message

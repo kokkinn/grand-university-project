@@ -1,3 +1,5 @@
+/************ General **********/
+
 :root {
   --grey-1: #333434;
   --grey-2: #202020;
@@ -8,23 +10,33 @@
   font-size: 16px;
   color: var(--white);
 }
+
 body {
-  /*display: flex;*/
-  /*justify-content: center;*/
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: "Zapf Dingbats", sans-serif;
-  height: 100vh;
-  background-color: black !important;
+  background-color: black;
 }
+
 #root {
   color: var(--white);
   display: flex;
   flex-direction: column;
-  /*justify-content: center;*/
   background-color: var(--grey-1);
+}
 
+/********* App head **********/
+
+#ah-buttons {
+  display: flex;
+  background-color: transparent;
+}
+
+#ah-buttons * {
+  border: none;
+  color: var(--white);
+  background-color: transparent;
 }
 
 #app-head {
@@ -49,9 +61,11 @@ body {
   user-select: none;
   transition: transform 0.3s;
 }
+
 #icon-clock:hover {
   transform: scale(1.2);
 }
+
 #app-head #ah-buttons * {
   padding: 0.5rem;
   width: 3rem;
@@ -61,12 +75,15 @@ body {
 #ah-close:hover {
   background-color: red;
 }
+
 #ah-tray:hover {
   background-color: var(--grey-0);
 }
+
 #ah-full:hover {
   background-color: var(--grey-0);
 }
+
 #app-body {
   display: flex;
 }
@@ -77,6 +94,9 @@ body {
   flex-direction: column;
 }
 
+
+/********** History *********/
+
 #history-container {
   width: 30%;
   display: flex;
@@ -85,15 +105,16 @@ body {
   transition: max-width 0.5s;
   overflow: hidden;
 }
+
 .hc-visible {
   max-width: 30% !important;
 }
 
 #clear-history-container {
   display: flex;
-  /*justify-content: flex-end;*/
   padding: 1rem;
 }
+
 #clear-history {
   cursor: pointer;
   transition: transform 0.3s;
@@ -102,6 +123,7 @@ body {
 #clear-history:hover {
   transform: scale(1.2);
 }
+
 #history-title {
   width: min-content;
   color: var(--white);
@@ -110,6 +132,7 @@ body {
   border-bottom: var(--blue) 2px solid;
   cursor: pointer;
 }
+
 .history-entry {
   cursor: pointer;
   text-align: right;
@@ -125,11 +148,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  /*gap: 0.5rem;*/
   color: var(--grey-0);
   flex: 1;
   padding: 1rem;
-  /*overflow: scroll;*/
 }
 
 @media (max-width: 800px) {
@@ -156,16 +177,7 @@ body {
   }
 }
 
-#ah-buttons {
-  display: flex;
-  background-color: transparent;
-}
-
-#ah-buttons * {
-  border: none;
-  color: var(--white);
-  background-color: transparent;
-}
+/********** Numerical types **********/
 #type-selection-history {
   display: flex;
   justify-content: space-between;
@@ -179,23 +191,28 @@ body {
   align-items: center;
   gap: 1rem;
 }
+
 #history-toggle-button {
   display: flex;
   align-items: center;
   cursor: pointer;
 }
 
+/********** App calculations display **********/
+
 #app-calculations {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: flex-end;
-  padding-right: 1rem;
+  gap: 1rem;
+  padding: 1rem 1rem;
 }
 #expression {
   font-size: 1rem;
   white-space: pre-wrap;
   height: 1.5rem;
+  /*padding: 1rem;*/
 }
 
 #expression::after {
@@ -225,6 +242,9 @@ body {
 .ns-button {
   width: 2rem;
 }
+
+/********** Random settings **********/
+
 #random-settings {
   display: flex;
   justify-content: space-around;
@@ -242,6 +262,8 @@ body {
   border-bottom: 4px solid transparent;
 }
 
+/********** Calculator display **********/
+
 #buttons-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -251,15 +273,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: clamp(1rem, 10vh, 20rem);
-  /*height: 5rem;*/
+  height: clamp(1rem, 9.5vh, 20rem);
   color: var(--white);
   background-color: #090909;
   border: var(--grey-1) solid 1px;
   border-radius: 0.25rem;
   user-select: none;
   flex: 1;
-  font-size: 1.5rem;
+  font-size: 2rem;
   cursor: pointer;
 }
 
