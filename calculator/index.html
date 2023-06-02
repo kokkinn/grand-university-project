@@ -9,6 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Calculator Kokkin</title>
     <script src="js/index.js" type="module" defer></script>
+<!--    <link rel="stylesheet" href="../index.css">-->
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
@@ -20,7 +21,7 @@
             width="15px"
             height="15px"
           />
-          <div>Calculator</div>
+          <div id="app-title">Calculator</div>
         </div>
         <div id="ah-buttons">
           <button id="ah-tray">―</button>
@@ -32,11 +33,11 @@
         <div id="calculator-container">
           <div id="type-selection-history">
             <div id="type-selection">
-              <img src="images/svg/three_stripes.svg" width="20" alt="=" />
+              <img src="images/svg/three_stripes.svg" width="20" alt="=" id="icon-stripes"/>
               <div>Programmer</div>
             </div>
             <div id="history-toggle-button">
-              <img src="images/svg/clock.svg" />
+              <img src="images/svg/clock.svg" id="icon-clock" width="25"/>
             </div>
           </div>
           <div id="app-calculations">
@@ -44,7 +45,7 @@
             <div id="number"></div>
           </div>
 
-          <div id="ns-select">
+          <div id="ns-select-container">
             <div class="ns-select-choice" data-ns="dec">
               <div class="ns-button" id="button-dec">DEC</div>
               <div id="number-dec"></div>
@@ -89,49 +90,56 @@
           </div>
 
           <div id="buttons-grid">
-            <div class="display-button" data-value="A">A</div>
-            <div class="display-button" data-value="arrow"><<</div>
-            <div class="display-button" data-value="arrow">>></div>
-            <div class="display-button" id="button-clear-input" data-value="c">CE</div>
-            <div class="display-button" data-value="Backspace">
+            <!--            TODO render buttons dynamically-->
+            <div class="display-button hex" data-value="A">A</div>
+            <div class="display-button bin" data-value="arrow"><<</div>
+            <div class="display-button bin" data-value="arrow">>></div>
+            <div
+              class="display-button com"
+              id="button-clear-input"
+              data-value="c"
+            >
+              C
+            </div>
+            <div class="display-button com" data-value="Backspace">
               <img
                 width="15"
                 src="images/svg/backspace_icon.svg"
                 alt="Backspace"
               />
             </div>
-            <div class="display-button" data-value="B">B</div>
-            <div class="display-button" data-value="(">(</div>
-            <div class="display-button" data-value=")">)</div>
-            <div class="display-button" data-value="%">%</div>
-            <div class="display-button" data-value="%">÷</div>
-            <div class="display-button" data-value="C">C</div>
-            <div class="display-button" data-value="7">7</div>
-            <div class="display-button" data-value="8">8</div>
-            <div class="display-button" data-value="9">9</div>
-            <div class="display-button" data-value="*">&times</div>
-            <div class="display-button" data-value="D">D</div>
-            <div class="display-button" data-value="4">4</div>
-            <div class="display-button" data-value="5">5</div>
-            <div class="display-button" data-value="6">6</div>
-            <div class="display-button" data-value="-">-</div>
-            <div class="display-button" data-value="E">E</div>
-            <div class="display-button" data-value="1">1</div>
-            <div class="display-button" data-value="2">2</div>
-            <div class="display-button" data-value="3">3</div>
-            <div class="display-button" data-value="+">+</div>
-            <div class="display-button" data-value="F">F</div>
+            <div class="display-button hex" data-value="B">B</div>
+            <div class="display-button com" data-value="(">(</div>
+            <div class="display-button com" data-value=")">)</div>
+            <div class="display-button com" data-value="%">%</div>
+            <div class="display-button com" data-value="/">÷</div>
+            <div class="display-button hex" data-value="C">C</div>
+            <div class="display-button oct dec hex" data-value="7">7</div>
+            <div class="display-button dec hex" data-value="8">8</div>
+            <div class="display-button dec hex" data-value="9">9</div>
+            <div class="display-button com" data-value="*">&times</div>
+            <div class="display-button hex" data-value="D">D</div>
+            <div class="display-button oct dec dec hex" data-value="4">4</div>
+            <div class="display-button oct dec dec hex" data-value="5">5</div>
+            <div class="display-button oct dec dec hex" data-value="6">6</div>
+            <div class="display-button com" data-value="-">-</div>
+            <div class="display-button hex" data-value="E">E</div>
+            <div class="display-button bin oct hex dec" data-value="1">1</div>
+            <div class="display-button oct hex dec" data-value="2">2</div>
+            <div class="display-button oct hex dec" data-value="3">3</div>
+            <div class="display-button com" data-value="+">+</div>
+            <div class="display-button hex" data-value="F">F</div>
 
-            <div class="display-button" id="negate" data-value="negate">
+            <div class="display-button com" id="negate" data-value="negate">
               &plusmn
             </div>
-            <div class="display-button" data-value="0">0</div>
-            <div class="display-button" data-value=".">.</div>
-            <div class="display-button" data-value="=">=</div>
+            <div class="display-button bin oct hex dec" data-value="0">0</div>
+            <div class="display-button com" data-value=".">.</div>
+            <div class="display-button com" data-value="=">=</div>
           </div>
         </div>
         <div id="history-container">
-          <div>History</div>
+          <a id="history-title">History</a>
           <div id="history-list"></div>
           <div id="clear-history-container">
             <img

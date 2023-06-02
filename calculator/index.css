@@ -9,14 +9,22 @@
   color: var(--white);
 }
 body {
+  /*display: flex;*/
+  /*justify-content: center;*/
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Zapf Dingbats", sans-serif;
+  height: 100vh;
+  background-color: black !important;
 }
 #root {
+  color: var(--white);
   display: flex;
   flex-direction: column;
+  /*justify-content: center;*/
   background-color: var(--grey-1);
+
 }
 
 #app-head {
@@ -30,6 +38,19 @@ body {
   align-items: center;
   padding: 0 1rem;
   gap: 1rem;
+}
+
+#icon-stripes {
+  user-select: none;
+}
+
+#icon-clock {
+  padding-right: 0.5rem;
+  user-select: none;
+  transition: transform 0.3s;
+}
+#icon-clock:hover {
+  transform: scale(1.2);
 }
 #app-head #ah-buttons * {
   padding: 0.5rem;
@@ -57,40 +78,84 @@ body {
 }
 
 #history-container {
+  width: 30%;
   display: flex;
   flex-direction: column;
-  max-width: 30%;
-  width: 30%;
+  max-width: 0;
   transition: max-width 0.5s;
-}
-.hc-invisible {
-  max-width: 0 !important;
   overflow: hidden;
 }
+.hc-visible {
+  max-width: 30% !important;
+}
+
 #clear-history-container {
   display: flex;
-  justify-content: flex-end;
+  /*justify-content: flex-end;*/
   padding: 1rem;
 }
 #clear-history {
   cursor: pointer;
+  transition: transform 0.3s;
+}
+
+#clear-history:hover {
+  transform: scale(1.2);
+}
+#history-title {
+  width: min-content;
+  color: var(--white);
+  text-align: left;
+  padding-bottom: 0.5rem;
+  border-bottom: var(--blue) 2px solid;
+  cursor: pointer;
+}
+.history-entry {
+  cursor: pointer;
+  text-align: right;
+  padding: 0.3rem;
+  width: 100%;
+}
+
+.history-entry:hover {
+  color: var(--white);
 }
 
 #history-list {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 0.5rem;
+  /*gap: 0.5rem;*/
   color: var(--grey-0);
   flex: 1;
   padding: 1rem;
-  overflow: scroll;
+  /*overflow: scroll;*/
 }
 
-/*#clear-history{*/
-/*  display: flex;*/
-/*  justify-content: flex-end;*/
-/*}*/
+@media (max-width: 800px) {
+  #history-container {
+    width: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(57, 57, 58, 0.97);
+    position: absolute;
+  }
+  .hc-visible {
+    max-width: 90% !important;
+  }
+
+  #history-title {
+    color: var(--white);
+    padding: 1rem;
+    font-size: 1.5rem;
+  }
+  #history-list {
+    width: auto;
+    color: var(--white);
+  }
+}
+
 #ah-buttons {
   display: flex;
   background-color: transparent;
@@ -125,11 +190,12 @@ body {
   flex-direction: column;
   align-items: flex-end;
   justify-content: flex-end;
-  padding-right: 0.5rem;
+  padding-right: 1rem;
 }
 #expression {
   font-size: 1rem;
   white-space: pre-wrap;
+  height: 1.5rem;
 }
 
 #expression::after {
@@ -139,16 +205,18 @@ body {
 #number {
   font-size: 2.5rem;
 }
-#ns-select {
+
+/*********** Numerical System Selection **********/
+
+#ns-select-container {
   user-select: none;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
 }
 
 .ns-select-choice {
   display: flex;
-  padding: 0 1rem;
+  padding: 0.25rem 1rem;
   width: 5rem;
   gap: 1rem;
   border-left: transparent 5px solid;
@@ -183,16 +251,29 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 3rem;
+  height: clamp(1rem, 10vh, 20rem);
+  /*height: 5rem;*/
   color: var(--white);
-  background-color: var(--grey-2);
+  background-color: #090909;
   border: var(--grey-1) solid 1px;
   border-radius: 0.25rem;
   user-select: none;
   flex: 1;
+  font-size: 1.5rem;
   cursor: pointer;
 }
 
-.display-button:hover {
-  background-color: blue;
+.dp-disabled {
+  color: #343436;
+  pointer-events: none;
+}
+
+.com {
+  background-color: #1e1e20;
+}
+
+@media (min-width: 800px) {
+  .display-button:hover {
+    background-color: var(--blue);
+  }
 }
