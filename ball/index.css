@@ -1,0 +1,44 @@
+body {
+  height: 100vh;
+}
+#root {
+  height: 100%;
+}
+@keyframes borderBlinking {
+  0% {
+    border-color: red;
+  }
+  50% {
+    border-color: hotpink;
+  }
+  100%{
+    border-color: firebrick;
+  }
+}
+#ball-container {
+  box-sizing: content-box;
+  border: black solid 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: borderBlinking 0.5s infinite ease-in-out;
+  animation-play-state: running;
+}
+#ball {
+  background-color: var(--primary-light);
+  position: absolute;
+  border-radius: 100%;
+}
+
+#ball:hover {
+  background-color: red;
+}
+
+#ball:active {
+  background-color: blue;
+}
+#stats {
+  padding: 1rem;
+  position: absolute;
+}

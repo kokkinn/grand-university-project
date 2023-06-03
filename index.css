@@ -19,7 +19,7 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  background: linear-gradient(180deg, var(--neutral), var(--secondary-light));
+  background: linear-gradient(180deg, var(--neutral), var(--secondary-light)) no-repeat;
   color: var(--secondary-dark);
 }
 main {
