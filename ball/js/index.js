@@ -2,14 +2,20 @@ function randomIntFromInterval(min, max) {
   // min and max included
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
+function getUnitVector(x, y) {
+  const initMagnitude = Math.sqrt(x * x + y * y);
+  return [x / initMagnitude, y / initMagnitude];
+}
 class Ball {
   ballElement;
   x;
   y;
   xDirection = 1;
-  yDirection = 1;
+  yDirection = 3;
+  yDNormalized = 1;
+  xDNormalized = 1;
   isMoving = false;
-  speed = 4;
+  speed = 5;
   constructor(ballElement_, initialX, initialY, ballDiameter) {
     this.ballElement = ballElement_;
     this.x = initialX;
@@ -59,8 +65,8 @@ class BallGame {
   logData() {
     this.statsElements.yd.innerText = this.ballObject.yDirection;
     this.statsElements.xd.innerText = this.ballObject.xDirection;
-    this.statsElements.yc.innerText = this.ballObject.x;
-    this.statsElements.xc.innerText = this.ballObject.y;
+    this.statsElements.xc.innerText = this.ballObject.x;
+    this.statsElements.yc.innerText = this.ballObject.y;
   }
   init() {
     document.addEventListener("keypress", (ev) => {
@@ -77,66 +83,54 @@ class BallGame {
 
   ballStep = () => {
     if (
-      this.ballObject.y < 0 ||
-      this.ballObject.y > this.containerObject.height - this.ballObject.diameter
+      this.ballObject.y + this.ballObject.yDirection < 0 ||
+      this.ballObject.y + this.ballObject.yDirection >
+        this.containerObject.height - this.ballObject.diameter
     ) {
-      this.ballObject.yDirection =
-        randomIntFromInterval(1, 10) *
-        (-this.ballObject.yDirection / Math.abs(this.ballObject.yDirection));
+      // collied with top or bottom
+      console.log("Collided TB");
 
       this.ballObject.y =
-        this.ballObject.y < 0
+        this.ballObject.y + this.ballObject.yDirection < 0
           ? 0
           : this.containerObject.height - this.ballObject.diameter;
-    }
-    if (
-      this.ballObject.x < 0 ||
-      this.ballObject.x > this.containerObject.width - this.ballObject.diameter
+      this.ballObject.yDirection = -this.ballObject.yDirection;
+      console.log("y", this.ballObject.y);
+      this.ballObject.yDirection =
+        randomIntFromInterval(1, 5) *
+        (this.ballObject.yDirection / Math.abs(this.ballObject.yDirection));
+      const unitVector = getUnitVector(
+        this.ballObject.xDirection,
+        this.ballObject.yDirection
+      );
+      this.ballObject.xDNormalized = unitVector.at(0);
+      this.ballObject.yDNormalized = unitVector.at(1);
+    } else if (
+      this.ballObject.x + this.ballObject.xDirection < 0 ||
+      this.ballObject.x + this.ballObject.xDirection >
+        this.containerObject.width - this.ballObject.diameter
     ) {
-      this.ballObject.xDirection =
-        randomIntFromInterval(1, 10) *
-        (-this.ballObject.xDirection / Math.abs(this.ballObject.xDirection));
+      console.log("Collided LR");
+      // collied with left or right
+
       this.ballObject.x =
-        this.ballObject.x < 0
+        this.ballObject.x + this.ballObject.xDirection < 0
           ? 0
           : this.containerObject.width - this.ballObject.diameter;
+      this.ballObject.xDirection = -this.ballObject.xDirection;
+      this.ballObject.xDirection =
+        randomIntFromInterval(1, 5) *
+        (this.ballObject.xDirection / Math.abs(this.ballObject.xDirection));
+      const unitVector = getUnitVector(
+        this.ballObject.xDirection,
+        this.ballObject.yDirection
+      );
+
+      this.ballObject.xDNormalized = unitVector.at(0);
+      this.ballObject.yDNormalized = unitVector.at(1);
     }
-    if (
-      Math.abs(this.ballObject.yDirection) <
-      Math.abs(this.ballObject.xDirection)
-    ) {
-      this.ballObject.y +=
-        (this.ballObject.yDirection * this.ballObject.speed) /
-        Math.abs(this.ballObject.xDirection);
-
-      // this.ballObject.y = Math.round(this.ballObject.y * 100) / 100
-
-      this.ballObject.x +=
-        (this.ballObject.xDirection * this.ballObject.speed) /
-        Math.abs(this.ballObject.xDirection);
-    } else if (
-      Math.abs(this.ballObject.yDirection) >
-      Math.abs(this.ballObject.xDirection)
-    ) {
-      this.ballObject.y +=
-        (this.ballObject.yDirection * this.ballObject.speed) /
-        Math.abs(this.ballObject.yDirection);
-      this.ballObject.x +=
-        (this.ballObject.xDirection * this.ballObject.speed) /
-        Math.abs(this.ballObject.yDirection);
-
-      // this.ballObject.x = Math.round(this.ballObject.x * 100) / 100
-    } else {
-      this.ballObject.y +=
-        (this.ballObject.yDirection * this.ballObject.speed) /
-        Math.abs(this.ballObject.yDirection);
-      this.ballObject.x +=
-        (this.ballObject.xDirection * this.ballObject.speed) /
-        Math.abs(this.ballObject.xDirection);
-    }
-
-    // this.ballObject.y += this.ballObject.yDirection
-    // this.ballObject.x += this.ballObject.xDirection
+    this.ballObject.x += this.ballObject.xDNormalized * this.ballObject.speed;
+    this.ballObject.y += this.ballObject.yDNormalized * this.ballObject.speed;
 
     this.ballObject.ballElement.style.left = this.ballObject.x + "px";
     this.ballObject.ballElement.style.bottom = this.ballObject.y + "px";
@@ -156,7 +150,7 @@ const xcoor = document.querySelector("#xcoor");
 const ycoor = document.querySelector("#ycoor");
 
 const ballObj = new Ball(ballElement, 0, 0, 70);
-const containerObj = new Container(400, 400, containerElement);
+const containerObj = new Container(400, 200, containerElement);
 ballObj.init();
 containerObj.init();
 const ballGame1 = new BallGame(ballObj, containerObj, {
