@@ -1,6 +1,7 @@
 import { Calculator } from "./calculator.js";
 import { CalculationsHistory } from "./history.js";
 
+
 const root = document.querySelector("#root");
 const expression = document.querySelector("#expression");
 const number = document.querySelector("#number");
@@ -27,3 +28,4 @@ window.onerror = function myErrorHandler(errorMsg) {
   alert("Error occured: " + errorMsg); //or any message
   return false;
 };
+document.querySelector('#root').remove()

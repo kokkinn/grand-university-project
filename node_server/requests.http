@@ -1,9 +1,25 @@
-POST http://localhost:8000/login
+### GET USER
+GET http://localhost:8000/auth/auth-test
+Authorization: Bearer eyJhbGsciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJpZ2JveDkiLCJpYXQiOjE2ODU5ODY2NjQsImV4cCI6MTY4NTk5MDI2NH0.cUMB4Fi3Sbwl0rDj3315xnVqO3D0x1CpUqEqsA_4ca4
+Accept: application/json
+
+### GET JWT TOKEN / LOGIN
+POST http://localhost:8000/auth/login
 Content-Type: application/json
 
 {
-  "username": "guy"
+  "username": "bigbox9",
+  "password": "pesbarbos1"
 }
 ###
-GET http://localhost:8000/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imd1eSIsImlhdCI6MTY4NTkxMjgxOSwiZXhwIjoxNjg1OTE2NDE5fQ.-l_SnfqequQhRQrMojBBeHhq9ljsoYW9zvu5b5RHz6E
+
+### REGISTER USER
+POST http://localhost:8000/auth/register-user
+Content-Type: application/json
+
+{
+  "username": "bigbox9",
+  "password": "pesbarbos1"
+}
+###
+DELETE http://localhost:8000/auth/delete-user/1

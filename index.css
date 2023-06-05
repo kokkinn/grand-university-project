@@ -21,6 +21,7 @@ body {
   margin: 0 auto;
   background: linear-gradient(180deg, var(--neutral), var(--secondary-light)) no-repeat;
   color: var(--secondary-dark);
+  font-family: "Zapf Dingbats", sans-serif;
 }
 main {
   gap: 5rem;

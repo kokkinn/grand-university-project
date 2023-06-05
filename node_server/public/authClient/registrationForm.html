@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://unpkg.com/check-password-strength/dist/umd.js"></script>
+    <link rel="stylesheet" href="../../../index.css" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Login form</title>
+  </head>
+  <body>
+    <div id="root">
+      <h1 id="page-title">Registration Form</h1>
+      <form class="auth-form" id="form-register">
+        <div class="label-input">
+          <label class="form-label" for="input-login-username">
+            Username
+          </label>
+          <input
+            required
+            class="form-input"
+            id="input-login-username"
+            name="username"
+            placeholder="Username"
+          />
+        </div>
+        <div class="label-input">
+          <label class="form-label" for="input-login-password">
+            Password
+          </label>
+          <input
+            required
+            class="form-input"
+            id="input-login-password"
+            name="password"
+            type="password"
+            placeholder="Password"
+          />
+        </div>
+        <div class="label-input">
+          <label class="form-label" for="input-password2">
+            Confirm password
+          </label>
+          <input
+            name="password2"
+            required
+            class="form-input"
+            id="input-password2"
+            type="password"
+            placeholder="Password"
+          />
+        </div>
+        <input class="form-submit" type="submit" value="Register" />
+      </form>
+      <div id="error-msg">&emsp;</div>
+    </div>
+    <script type="module">
+      import {NODE_SERVER_URL} from "./constants.js";
+
+      const registerFormElement = document.querySelector("#form-register");
+      const errorMsgElement = document.querySelector("#error-msg");
+      registerFormElement.addEventListener("submit", (ev) => {
+        ev.preventDefault();
+        errorMsgElement.innerText = "";
+        const password = ev.target.elements.password.value;
+        const password2 = ev.target.elements.password2.value;
+        const username = ev.target.elements.username.value;
+        if (password !== password2) {
+          errorMsgElement.innerText = "Passwords do not match :(";
+          return;
+        }
+        fetch(`${NODE_SERVER_URL}auth/register-user`, {
+          method: "POST",
+          body: JSON.stringify({ username: username, password: password }),
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        })
+          .then((res) => {
+            res.json().then((json) => {
+              if (!res.ok) {
+                errorMsgElement.innerText = "Such user already exists :(";
+                return;
+              }
+              errorMsgElement.innerText =
+                "You have registered successfully,you will be redirected soon !";
+              document.querySelector("#root").style.pointerEvents = "none";
+              setTimeout(() => {
+                window.location.replace("/calculator");
+              }, 3000);
+            });
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      });
+    </script>
+  </body>
+</html>
