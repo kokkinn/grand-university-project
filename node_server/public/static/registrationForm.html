@@ -7,8 +7,8 @@
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <script src="https://unpkg.com/check-password-strength/dist/umd.js"></script>
     <link rel="stylesheet" href="../../../index.css" />
+    <link rel="stylesheet" href="/index2.css" />
     <link rel="stylesheet" href="index.css" />
     <title>Login form</title>
   </head>
@@ -59,7 +59,9 @@
       <div id="error-msg">&emsp;</div>
     </div>
     <script type="module">
-      import {NODE_SERVER_URL} from "./constants.js";
+      import { NODE_SERVER_URL, navbar } from "./constants.js";
+      const body = document.querySelector("body");
+      body.innerHTML = navbar + body.innerHTML;
 
       const registerFormElement = document.querySelector("#form-register");
       const errorMsgElement = document.querySelector("#error-msg");

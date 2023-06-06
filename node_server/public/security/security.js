@@ -5,10 +5,10 @@ require("dotenv").config();
 const numSaltRounds = 8;
 
 async function hashPassword(password) {
-  return  bcryptjs.hash(password, numSaltRounds);
+  return bcryptjs.hash(password, numSaltRounds);
 }
 async function comparePasswordsHashToPlain(plain, hashed) {
-  return  bcryptjs.compare(plain, hashed);
+  return bcryptjs.compare(plain, hashed);
 }
 function signToken(userObject, expirationDate) {
   return jwt.sign(userObject, process.env.SECRET_KEY, { expiresIn: "1h" });
@@ -28,14 +28,13 @@ function tokenIsValid(jwtToken) {
 }
 
 function authenticateTokenMiddleware(req, res, next) {
-  const authHeader = req.headers.authorization;
-  const token = authHeader && authHeader.split(" ").at(1);
-  if (token === null) return res.sendStatus(401);
+  const authCookie = req.cookies["Authorization"];
+  const token = authCookie && authCookie.split(" ").at(1);
+  if (token === null) return false;
   try {
-    req.user = tokenIsValid(token);
-    next();
+    return tokenIsValid(token);
   } catch (err) {
-    res.status(403).json({ message: err.message });
+    return false;
   }
 }
 

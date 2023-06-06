@@ -4,8 +4,9 @@ const tokenMiddleware = require("../security/security.js").authenticateToken;
 
 const router = express.Router();
 
-router.get("/auth-test", tokenMiddleware, authControllers.authTest);
+router.get("/auth-test", authControllers.authTest);
 router.post("/login", authControllers.login);
+router.get("/logout", authControllers.logout);
 router.get("/get-user/:id", tokenMiddleware, authControllers.readUser);
 router.post("/register-user", authControllers.createUser);
 router.patch("/update-user/:id", authControllers.updateUser);

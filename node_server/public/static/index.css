@@ -1,13 +1,26 @@
 body {
-  height: 100vh;
+  min-height: 100vh;
 }
 #root {
-  height: 100%;
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2rem;
+}
+
+#nav{
+
+}
+#welcome{
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+#nav a{
+  cursor: pointer;
 }
 #page-title{
   padding: 1rem;
@@ -49,15 +62,72 @@ body {
 .form-submit:hover{
   transform: scale(1.05);
 }
+#calc-ref{
+  cursor: pointer;
+
+  animation: rainbow 0.5s infinite;
+}
+#cr-a{
+  text-decoration: none;
+}
+@keyframes rainbow{
+  100%,0%{
+    color: rgb(255,0,0);
+  }
+  8%{
+    color: rgb(255,127,0);
+  }
+  16%{
+    color: rgb(255,255,0);
+  }
+  25%{
+    color: rgb(127,255,0);
+  }
+  33%{
+    color: rgb(0,255,0);
+  }
+  41%{
+    color: rgb(0,255,127);
+  }
+  50%{
+    color: rgb(0,255,255);
+  }
+  58%{
+    color: rgb(0,127,255);
+  }
+  66%{
+    color: rgb(0,0,255);
+  }
+  75%{
+    color: rgb(127,0,255);
+  }
+  83%{
+    color: rgb(255,0,255);
+  }
+  91%{
+    color: rgb(255,0,127);
+  }
+}
 #error-msg{
   color: var(--primary-dark);
   display: block;
   font-size: 2rem;
   text-align: center;
-  white-space: nowrap;
 }
 
 @media (max-width: 672px) {
+  #welcome h1{
+    text-align: center;
+  }
+  #welcome p {
+    padding: 0 2rem;
+  }
+  #nav{
+    padding: 1rem 0 ;
+  }
+  #nav ul{
+    gap: 0.5rem;
+  }
   .auth-form{
     width: 90%;
     gap: 2rem;
@@ -73,4 +143,14 @@ body {
   /*.form-label{*/
   /*  width: 25%;*/
   /*}*/
+  #nav ul{
+    flex-direction: column;
+  }
+  #root{
+    gap: 0.5rem;
+    /*padding:0 1rem;*/
+  }
+  #welcome{
+    padding: 5rem 0;
+  }
 }

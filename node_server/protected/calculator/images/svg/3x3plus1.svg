@@ -1,0 +1,25 @@
+<svg width="600" height="600" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>Layer 1</title>
+  <polyline stroke-linecap="round" id="svg_3" points="566,102.5 566,102.5 " stroke="#000" fill="none"/>
+  <g id="svg_8">
+   <rect id="svg_4" height="50" width="50" y="364.99621" x="277.00002" fill="#56aaff"/>
+   <rect id="svg_6" height="50" width="50" y="361.99621" x="153.00002" fill="#56aaff"/>
+   <rect id="svg_7" height="50" width="50" y="363.99621" x="397.00002" fill="#56aaff"/>
+  </g>
+  <g id="svg_12">
+   <rect id="svg_9" height="50" width="50" y="214.99611" x="277.00001" fill="#56aaff"/>
+   <rect id="svg_10" height="50" width="50" y="211.99611" x="153.00001" fill="#56aaff"/>
+   <rect id="svg_11" height="50" width="50" y="213.99611" x="397.00001" fill="#56aaff"/>
+  </g>
+  <g id="svg_16">
+   <rect id="svg_13" height="50" width="50" y="77.99579" x="277" fill="#56aaff"/>
+   <rect id="svg_14" height="50" width="50" y="74.99579" x="153" fill="#56aaff"/>
+   <rect id="svg_15" height="50" width="50" y="76.99579" x="397" fill="#56aaff"/>
+  </g>
+  <rect id="svg_17" height="50" width="50" y="504.99427" x="274.99999" fill="#56aaff"/>
+  <path id="svg_18" d="m588.71275,688.79061l0.56913,0l0.17587,-0.54067l0.17587,0.54067l0.56913,0l-0.46044,0.33415l0.17588,0.54067l-0.46044,-0.33416l-0.46044,0.33416l0.17588,-0.54067l-0.46044,-0.33415z" stroke="#ffffff" fill="#56aaff"/>
+  <path id="svg_19" d="m446.09619,673.86567l0.56913,0l0.17587,-0.54067l0.17587,0.54067l0.56913,0l-0.46044,0.33415l0.17588,0.54067l-0.46044,-0.33416l-0.46044,0.33416l0.17588,-0.54067l-0.46044,-0.33415z" fill="#56aaff"/>
+ </g>
+
+</svg>
