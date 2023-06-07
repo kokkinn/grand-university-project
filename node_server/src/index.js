@@ -11,7 +11,9 @@ const corsOptions = {
   optionSuccessStatus: 200,
 };
 // app.use('/protected', securityModule.authenticateToken)
-app.use(express.static("public/static"));
+app.use(express.static("src/public/static/html"));
+app.use(express.static("src/public/static/css"));
+app.use(express.static("src/public/static/js"));
 app.use(cookieParser());
 
 app.use(function (req, res, next) {
@@ -19,7 +21,6 @@ app.use(function (req, res, next) {
     if (!securityModule.authenticateToken(req, res, next)){
       return res.redirect("/loginForm.html");}
   }
-  console.log('A')
   return next();
 });
 
@@ -27,7 +28,7 @@ app.use(function (req, res, next) {
 //   securityModule.authenticateToken(req, res, next);
 // });
 
-app.use(express.static("protected"));
+app.use(express.static("src/protected"));
 
 app.use(morgan("combined"));
 app.use(express.json());

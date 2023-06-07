@@ -32,7 +32,7 @@ const login = (req, res) => {
   const SQL_QUERY = `SELECT * FROM users WHERE username=?`;
   db.all(SQL_QUERY, req.body.username, async (err, rows) => {
     if (rows.length < 1)
-      return res.status(404).json({ message: "Incorrect credentials u" });
+      return res.status(404).json({ message: "Incorrect credentials (no such user)" });
     const hashedPassword = rows.at(0).password;
     if (
       await securityModule.comparePasswordsHashToPlain(
@@ -46,7 +46,7 @@ const login = (req, res) => {
       res.cookie("Authorization", `Bearer ${jwtToken}`);
       return res.json({ token: jwtToken });
     } else {
-      return res.status(403).json({ message: "Incorrect credentials p" });
+      return res.status(403).json({ message: "Incorrect credentials (password)" });
     }
   });
 };

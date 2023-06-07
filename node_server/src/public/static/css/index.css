@@ -11,7 +11,7 @@ body {
 }
 
 #nav{
-
+  justify-content: center;
 }
 #welcome{
   display: flex;

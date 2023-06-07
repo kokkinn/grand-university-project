@@ -26,17 +26,17 @@ window.onerror = function myErrorHandler(errorMsg) {
   alert("Error occured: " + errorMsg); //or any message
   return false;
 };
-window.addEventListener("click", (ev) => {
-  console.log(ev.target.id)
-  if (
-
-    document
-      .querySelector("#history-container")
-      .classList.contains("hc-visible") &&
-    !document.querySelector("#history-container").contains(ev.target) &&
-    ev.target.id !== "icon-clock"
-  ) {
-    console.log("AAAA");
-    hist1.closeHistory();
-  }
-});
+// window.addEventListener("click", (ev) => {
+//   console.log(ev.target.id)
+//   if (
+//
+//     document
+//       .querySelector("#history-container")
+//       .classList.contains("hc-visible") &&
+//     !document.querySelector("#history-container").contains(ev.target) &&
+//     ev.target.id !== "icon-clock"
+//   ) {
+//     console.log("AAAA");
+//     hist1.closeHistory();
+//   }
+// });

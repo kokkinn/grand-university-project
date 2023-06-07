@@ -89,11 +89,12 @@
                 errorMsgElement.innerText = "Such user already exists :(";
                 return;
               }
+              fetch(`${NODE_SERVER_URL}/auth/logout`, {method:"GET"})
               errorMsgElement.innerText =
-                "You have registered successfully,you will be redirected soon !";
+                "You have registered successfully, please login to use the calculator";
               document.querySelector("#root").style.pointerEvents = "none";
               setTimeout(() => {
-                window.location.replace("/calculator");
+                window.location.replace("/");
               }, 3000);
             });
           })
