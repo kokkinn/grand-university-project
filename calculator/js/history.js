@@ -56,6 +56,7 @@ export class CalculationsHistory {
     historyElement.classList.add("history-entry");
     historyElement.innerText = element;
     historyElement.addEventListener("click", () => {
+
       this.handleHistoryEntryClick(
         historyElement.innerText,
         this.calculatorObject

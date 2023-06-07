@@ -53,13 +53,18 @@ thead tr td {
   border-left: 1px #d7c1c1 solid;
 }
 .td-weekday {
-  font-size: 1.5rem;
-  vertical-align: center;
-  text-align: center;
-  writing-mode: vertical-lr;
-  text-orientation: upright;
   border-right: 1px #d7c1c1 solid !important;
   transition: background-color 0.1s;
+}
+
+.td-weekday div {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  writing-mode: vertical-lr !important;
+  text-orientation: upright;
 }
 
 table tbody tr:nth-child(7n) td:nth-child(n + 1) {
@@ -77,4 +82,24 @@ table tbody tr:nth-child(7n) {
 table tr:not(thead tr):hover,
 thead td:hover {
   background-color: #eee3e8;
+}
+
+@media (max-width: 678px) {
+  table td {
+    padding: 0.6rem 0.3rem;
+    font-size: 1rem;
+  }
+  thead tr td {
+    font-size: 0.8rem;
+  }
+
+  #app-title {
+    font-size: 1.3rem;
+    text-align: left;
+    padding: 1rem;
+  }
+  #now-container {
+    font-size: 1.3rem;
+    padding: 1rem;
+  }
 }

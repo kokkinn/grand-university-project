@@ -31,3 +31,7 @@ renderCurrentLesson(currentLessonNode, currentLessonString);
 window.setInterval(() => {
   renderCurrentLesson(currentLessonNode);
 }, 5000);
+
+// if (navigator.userAgent.search("Safari") > -1) {
+//   display = 'inline-block';
+// }

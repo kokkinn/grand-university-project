@@ -5,37 +5,37 @@ body {
 #root {
   height: 100%;
   display: flex;
-  /*justify-content: center;*/
   align-items: center;
   flex-direction: column;
+  gap: 3rem;
 }
 
 #ball-container {
   box-sizing: content-box;
   border: black solid 1rem;
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  position: relative;
   border-radius: 5%;
   transition: border-color 0.3s ease-in-out;
-  transform: translate(-50%, -50%);
   background: linear-gradient(var(--secondary-light), var(--neutral));
   animation: rainbow 10s infinite ease-in-out;
+  width: 60%;
+  height: 50%;
   box-shadow: #0a0a0a 0 10px 30px;
 
 }
+
 
 #ball {
   background: linear-gradient(var(--primary-dark), var(--secondary-light));
   position: absolute;
   /*box-shadow: 0 10px 5px;*/
   border-radius: 100%;
-  transition: box-shadow 0.1s ease-in-out;
+  transition: background 0.3s ease-in-out;
   cursor: pointer;
 }
 
 #ball:hover {
-  box-shadow: 0 0 30px var(--primary-dark);
+  background: var(--primary-dark);
 }
 .guide{
   font-size: 1.2rem;
@@ -49,8 +49,9 @@ body {
   align-items: center;
 }
 #input-speed-range{
-  width: 20rem;
+  /*width: 20rem;*/
   cursor: pointer;
+  width: 100%;
 }
 #ball:active {
   background-color: blue;
@@ -67,4 +68,14 @@ body {
   user-select: none;
   -webkit-user-select: none;
   transform: translate(-50%, -50%);
+}
+@media (max-width: 678px) {
+  #ball-container{
+    width: 80% ;
+    height: 60%;
+  }
+  #header{
+    padding: 1rem;
+  }
+
 }

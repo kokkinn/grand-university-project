@@ -15,7 +15,10 @@ function renderTableBodyFromData(tableBodyNode, scheduleData, currUtc) {
   for (const weekday in scheduleData.data) {
     tableBody += `<tr>
                     <td class="td-weekday ${weekday}" rowspan="7">
-                        ${weekday.charAt(0).toUpperCase() + weekday.slice(1)}
+                    <div>
+                        ${
+                          weekday.charAt(0).toUpperCase() + weekday.slice(1)
+                        }</div>
                     </td>
                   </tr>`;
     for (const lessonNumber in scheduleData.data[weekday]) {

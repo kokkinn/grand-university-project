@@ -1,7 +1,6 @@
 import { Calculator } from "./calculator.js";
 import { CalculationsHistory } from "./history.js";
 
-
 const root = document.querySelector("#root");
 const expression = document.querySelector("#expression");
 const number = document.querySelector("#number");
@@ -23,9 +22,21 @@ hist1.init();
 calc1.subscribe(hist1.addHistoryEntry);
 calc1.init();
 
-
 window.onerror = function myErrorHandler(errorMsg) {
   alert("Error occured: " + errorMsg); //or any message
   return false;
 };
-document.querySelector('#root').remove()
+window.addEventListener("click", (ev) => {
+  console.log(ev.target.id)
+  if (
+
+    document
+      .querySelector("#history-container")
+      .classList.contains("hc-visible") &&
+    !document.querySelector("#history-container").contains(ev.target) &&
+    ev.target.id !== "icon-clock"
+  ) {
+    console.log("AAAA");
+    hist1.closeHistory();
+  }
+});

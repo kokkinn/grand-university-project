@@ -187,7 +187,6 @@ export class Calculator {
   }
 
   handleInput(key) {
-
     // TODO bug, for equal sign -x--y gives error
     // TODO more constants
 
@@ -226,7 +225,9 @@ export class Calculator {
         this.currNumber = CALCULATION_SYSTEM_TYPES.hex.prefix + this.currNumber;
       } else if (
         this.calcSystem === CALCULATION_SYSTEM_TYPES.bin.short &&
-        this.currNumber.slice(1, 2) !== CALCULATION_SYSTEM_TYPES.bin.prefix
+        this.currNumber.slice(1, 2) !== CALCULATION_SYSTEM_TYPES.bin.prefix &&
+        this.currNumber.indexOf(">>") === -1 &&
+        this.currNumber.indexOf("<<") === -1
       ) {
         this.currNumber = CALCULATION_SYSTEM_TYPES.bin.prefix + this.currNumber;
       } else if (
@@ -256,6 +257,30 @@ export class Calculator {
           this.currExpression.slice(0, this.currExpression.lastIndexOf("(")) +
             this.currExpression.slice(this.currExpression.lastIndexOf("(") + 1)
         ).toString(CALCULATION_SYSTEM_TYPES[this.calcSystem].num);
+      }
+      if (
+        this.calcSystem === CALCULATION_SYSTEM_TYPES.bin.short &&
+        this.currNumber.indexOf(">") !== -1 &&
+        this.currNumber.indexOf("<") !== -1
+      ) {
+        // TODO rework this cringe
+        let expression = this.currExpression
+          .split("<<")
+          .map((ex) => {
+            return "0b" + ex;
+          })
+          .join("<<");
+        console.log("A", expression);
+        if (expression.split(">>").length > 1) {
+          expression = expression
+            .split(">>")
+            .map((ex) => {
+              return "0b" + ex;
+            })
+            .join(">>");
+        }
+        console.log(expression);
+        this.currExpression = expression;
       }
       return eval(this.currExpression).toString(
         CALCULATION_SYSTEM_TYPES[this.calcSystem].num
@@ -294,7 +319,7 @@ export class Calculator {
       }
       return;
     }
-
+    console.log(key);
     // key is backspace
     if (key === ALLOWED_KEYS.backspace) {
       if (this.currNumber.length > 1) {
@@ -388,6 +413,12 @@ export class Calculator {
       this.currSymbol = key;
 
       // if current inputted key is number
+      if (
+          this.currNumber.at(0) === "0" &&
+          this.calcSystem !== CALCULATION_SYSTEM_TYPES.bin.short
+      )
+          // TODO maybe handle with String(Number(number))
+        this.currNumber = this.currNumber.slice(1, this.currNumber.length);
       if (NUMBER_FIELD_INPUTS.includes(this.currSymbol)) {
         this.currNumber = key;
       }
