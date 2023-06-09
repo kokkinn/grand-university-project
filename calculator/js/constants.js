@@ -1,5 +1,5 @@
 const NUMBER_FIELD_INPUTS = "1234567890abcdefABCDEF.<<>>";
-const NUMBER_FIELD_OPERATORS = "+-";
+const NUMBER_FIELD_OPERATORS = "+-/*%";
 const PARENTHESIS = "()";
 const COMMON_ALLOWED_KEYS = "+-*/%=()10Cc.";
 const CALCULATION_SYSTEM_TYPES = {

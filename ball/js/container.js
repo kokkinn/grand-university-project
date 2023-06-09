@@ -1,8 +1,8 @@
 import {getRandomColor} from "./utils.js";
 
 export class Container {
-    width = 300;
-    height = 300;
+    width;
+    height;
     containerElement;
     constructor(width_, height_, containerElement_) {
         this.height = height_;
@@ -10,8 +10,8 @@ export class Container {
         this.containerElement = containerElement_;
     }
     init() {
-        // this.containerElement.style.width = this.width + "px";
-        // this.containerElement.style.height = this.height + "px";
+        this.containerElement.style.width = this.width + "px";
+        this.containerElement.style.height = this.height + "px";
     }
 
     randomBorder() {

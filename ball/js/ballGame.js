@@ -24,9 +24,9 @@ export class BallGame {
         this.statsElements.xc.innerText = Math.floor(this.ballObject.x);
         this.statsElements.yc.innerText = Math.floor(this.ballObject.y);
     }
+
     init() {
         this.speedRangeElement.addEventListener("input", (ev) => {
-            console.log("a");
             this.ballObject.speed = ev.target.value;
         });
 
@@ -60,21 +60,22 @@ export class BallGame {
 
     ballStep = () => {
         if (
-            this.ballObject.y + this.ballObject.yDirection < 0 ||
-            this.ballObject.y + this.ballObject.yDirection >
+            this.ballObject.y  < 0 ||
+            this.ballObject.y  >
             this.containerObject.height - this.ballObject.diameter
         ) {
             this.ballObject.playHitSound();
             this.containerObject.randomBorder();
             // collied with top or bottom
-
+            console.log('collided')
             this.ballObject.y =
                 this.ballObject.y + this.ballObject.yDirection < 0
                     ? 0
                     : this.containerObject.height - this.ballObject.diameter;
+            this.ballObject.xDirection = randomIntFromInterval(-20 ,20);
             this.ballObject.yDirection = -this.ballObject.yDirection;
             this.ballObject.yDirection =
-                randomIntFromInterval(1, 5) *
+                randomIntFromInterval(1, 20) *
                 (this.ballObject.yDirection / Math.abs(this.ballObject.yDirection));
             const unitVector = getUnitVector(
                 this.ballObject.xDirection,
@@ -83,10 +84,11 @@ export class BallGame {
             this.ballObject.xDNormalized = unitVector.at(0);
             this.ballObject.yDNormalized = unitVector.at(1);
         } else if (
-            this.ballObject.x + this.ballObject.xDirection < 0 ||
-            this.ballObject.x + this.ballObject.xDirection >
+            this.ballObject.x < 0 ||
+            this.ballObject.x  >
             this.containerObject.width - this.ballObject.diameter
         ) {
+            console.log('collided')
             // collied with left or right
             this.ballObject.playHitSound();
             this.containerObject.randomBorder();
@@ -94,9 +96,10 @@ export class BallGame {
                 this.ballObject.x + this.ballObject.xDirection < 0
                     ? 0
                     : this.containerObject.width - this.ballObject.diameter;
+            this.ballObject.yDirection = randomIntFromInterval(-20 ,20);
             this.ballObject.xDirection = -this.ballObject.xDirection;
             this.ballObject.xDirection =
-                randomIntFromInterval(1, 5) *
+                randomIntFromInterval(1, 20) *
                 (this.ballObject.xDirection / Math.abs(this.ballObject.xDirection));
             const unitVector = getUnitVector(
                 this.ballObject.xDirection,
