@@ -23,6 +23,10 @@ calc1.subscribe(hist1.addHistoryEntry);
 calc1.init();
 
 window.onerror = function myErrorHandler(errorMsg) {
+  calc1.currSymbol = '0'
+  calc1.currNumber = '0'
+  calc1.currExpression=''
+  calc1.refreshCalcHTML()
   alert("Error occured: " + errorMsg); //or any message
   return false;
 };
@@ -40,3 +44,21 @@ window.onerror = function myErrorHandler(errorMsg) {
 //     hist1.closeHistory();
 //   }
 // });
+document.querySelector("#x22rs").addEventListener("click", (ev) => {
+  document.querySelector("#binary-op").classList.toggle("active");
+  document.querySelector("#binary-op").style.left =
+    document.querySelector("#x22rs").getBoundingClientRect().left + "px";
+  document.querySelector("#binary-op").style.top =
+    document.querySelector("#x22rs").getBoundingClientRect().bottom + "px";
+});
+
+window.addEventListener("click", (ev) => {
+  if (
+    ev.target.classList.contains("display-button") === false &&
+    ev.target.id !== "x22rs"
+  ) {
+    if (document.querySelector("#binary-op").classList.contains("active")) {
+      document.querySelector("#binary-op").classList.remove("active");
+    }
+  }
+});

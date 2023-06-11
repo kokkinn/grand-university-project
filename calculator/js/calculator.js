@@ -245,9 +245,7 @@ export class Calculator {
         this.currExpression.indexOf("(") === 0 &&
         this.currExpression.indexOf(")") === -1
       ) {
-        return eval(this.currExpression.slice(1)).toString(
-          CALCULATION_SYSTEM_TYPES[this.calcSystem].num
-        );
+        return eval(this.currExpression.slice(1));
       }
       if (
         this.currExpression.lastIndexOf("(") >
@@ -256,7 +254,7 @@ export class Calculator {
         return eval(
           this.currExpression.slice(0, this.currExpression.lastIndexOf("(")) +
             this.currExpression.slice(this.currExpression.lastIndexOf("(") + 1)
-        ).toString(CALCULATION_SYSTEM_TYPES[this.calcSystem].num);
+        );
       }
       if (
         this.calcSystem === CALCULATION_SYSTEM_TYPES.bin.short &&
@@ -282,11 +280,8 @@ export class Calculator {
         console.log(expression);
         this.currExpression = expression;
       }
-      return eval(this.currExpression).toString(
-        CALCULATION_SYSTEM_TYPES[this.calcSystem].num
-      );
+      return eval(this.currExpression);
     };
-
     const checkBP = () => {
       return (
         (this.currExpression.indexOf("(") !== -1 &&
@@ -302,7 +297,10 @@ export class Calculator {
     if (key === "Enter") {
       key = "=";
     }
-
+    if (key === "0" && this.currNumber === "0") {
+      ///////wegweipgjwiogjwhehgojwehoehgweheowhwejghwej
+      return;
+    }
     // key is +-
     if (key === "negate") {
       this.currNumber = -this.currNumber;
@@ -351,7 +349,6 @@ export class Calculator {
       }
       return;
     }
-
     // if LAST inputted symbol was a NUMBER (default from start is 0)
     if (NUMBER_FIELD_INPUTS.includes(this.currSymbol)) {
       console.log("Previous symbol was a number");
@@ -360,19 +357,29 @@ export class Calculator {
       // if current inputted key is number
       if (NUMBER_FIELD_INPUTS.includes(this.currSymbol)) {
         console.log("key is a number");
-        if (this.wasEvaluated) {
+        console.log(this.currSymbol, this.currNumber);
+        if (this.wasEvaluated && "|&^".includes(this.currSymbol) === false) {
           console.log("was evaluated");
           this.currNumber = key;
           this.wasEvaluated = false;
         } else {
           this.currNumber = this.currNumber += key;
+          console.log(this.currNumber);
+          this.wasEvaluated = false;
         }
+
         if (
           this.currNumber.at(0) === "0" &&
-          this.calcSystem !== CALCULATION_SYSTEM_TYPES.bin.short
-        )
+          this.calcSystem !== CALCULATION_SYSTEM_TYPES.bin.short &&
+          this.currSymbol !== "|" &&
+          this.currNumber.includes("|") === false &&
+          this.currNumber.includes("^") === false &&
+          this.currNumber.includes("&") === false &&
+          this.currNumber.includes("**") === false
+        ) {
           // TODO maybe handle with String(Number(number))
           this.currNumber = this.currNumber.slice(1, this.currNumber.length);
+        }
       }
 
       // if current inputted key is an allowed sign (except '='), we evaluate current number or expression
@@ -381,7 +388,12 @@ export class Calculator {
         checkNSPrefixForCurrNumber();
         this.lastSign = this.currSymbol;
         this.currExpression += this.currNumber;
-        this.currNumber = evaluateExpression();
+        console.log("DSVKNS");
+        const evaluated = Math.floor(evaluateExpression());
+
+        this.currNumber = evaluated.toString(
+          CALCULATION_SYSTEM_TYPES[this.calcSystem].num
+        );
         this.currExpression += this.currSymbol;
         this.wasEvaluated = false;
       }
@@ -392,8 +404,16 @@ export class Calculator {
         checkNSPrefixForCurrNumber();
         handleOld();
         const evaluated = evaluateExpression();
-        this.currNumber = evaluated;
-        this.publishNewEvaluation(this.currExpression + "=" + evaluated);
+
+        this.publishNewEvaluation(
+          this.currExpression +
+            "=" +
+            evaluated.toString(CALCULATION_SYSTEM_TYPES[this.calcSystem].num)
+        );
+        this.currNumber = Math.floor(evaluated).toString(
+          CALCULATION_SYSTEM_TYPES[this.calcSystem].num
+        );
+
         this.currSymbol = this.currNumber.at(-1);
 
         this.currExpression = "";
@@ -414,10 +434,10 @@ export class Calculator {
 
       // if current inputted key is number
       if (
-          this.currNumber.at(0) === "0" &&
-          this.calcSystem !== CALCULATION_SYSTEM_TYPES.bin.short
+        this.currNumber.at(0) === "0" &&
+        this.calcSystem !== CALCULATION_SYSTEM_TYPES.bin.short
       )
-          // TODO maybe handle with String(Number(number))
+        // TODO maybe handle with String(Number(number))
         this.currNumber = this.currNumber.slice(1, this.currNumber.length);
       if (NUMBER_FIELD_INPUTS.includes(this.currSymbol)) {
         this.currNumber = key;
@@ -436,8 +456,12 @@ export class Calculator {
         handleOld();
         this.currSymbol = this.currNumber.at(-1);
         const evaluated = evaluateExpression();
-        this.currNumber = evaluated;
-        this.publishNewEvaluation(this.currExpression + "=" + evaluated);
+        this.publishNewEvaluation(
+          this.currExpression +
+            "=" +
+            evaluated.toString(CALCULATION_SYSTEM_TYPES[this.calcSystem].num)
+        );
+        this.currNumber = Math.floor(evaluated).toString(CALCULATION_SYSTEM_TYPES[this.calcSystem].num);
         this.currExpression = "";
       }
 
@@ -453,8 +477,12 @@ export class Calculator {
         this.currExpression += this.currSymbol;
       } else if (key === "=") {
         const evaluated = evaluateExpression();
-        this.currNumber = evaluated;
-        this.publishNewEvaluation(this.currExpression + "=" + evaluated);
+        this.publishNewEvaluation(
+          this.currExpression +
+            "=" +
+            evaluated.toString(CALCULATION_SYSTEM_TYPES[this.calcSystem].num)
+        );
+        this.currNumber = Math.floor(evaluated).toString(CALCULATION_SYSTEM_TYPES[this.calcSystem].num);
         this.currExpression = "";
       }
     }

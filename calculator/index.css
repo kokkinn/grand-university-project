@@ -94,7 +94,6 @@ body {
   flex-direction: column;
 }
 
-
 /********** History *********/
 
 #history-container {
@@ -151,6 +150,7 @@ body {
   color: var(--grey-0);
   flex: 1;
   padding: 1rem;
+  overflow: scroll;
 }
 
 @media (max-width: 800px) {
@@ -295,6 +295,20 @@ body {
 
 .com {
   background-color: #1e1e20;
+}
+#binary-op {
+  position: absolute;
+  top: 100px;
+  display: none;
+}
+.active {
+  display: flex !important;
+}
+
+#binary-op div {
+  font-size: 1rem;
+  height: auto;
+  padding: 0.5rem;
 }
 
 @media (min-width: 800px) {

@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Calculator Kokkin</title>
     <script src="js/index.js" type="module" defer></script>
-<!--    <link rel="stylesheet" href="../index.css">-->
+    <!--    <link rel="stylesheet" href="../index.css">-->
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
@@ -33,11 +33,16 @@
         <div id="calculator-container">
           <div id="type-selection-history">
             <div id="type-selection">
-              <img src="images/svg/three_stripes.svg" width="20" alt="=" id="icon-stripes"/>
+              <img
+                src="images/svg/three_stripes.svg"
+                width="20"
+                alt="="
+                id="icon-stripes"
+              />
               <div>Programmer</div>
             </div>
             <div id="history-toggle-button">
-              <img src="images/svg/clock.svg" id="icon-clock" width="25"/>
+              <img src="images/svg/clock.svg" id="icon-clock" width="25" />
             </div>
           </div>
           <div id="app-calculations">
@@ -64,6 +69,23 @@
             </div>
           </div>
           <div id="random-settings">
+            <div id="binary-op">
+              <div class="display-button oct dec dec hex" data-value="|">
+                OR
+              </div>
+              <div class="display-button oct dec dec hex" data-value="&">
+                AND
+              </div>
+              <div class="display-button oct dec dec hex" data-value="^">
+                XOR
+              </div>
+              <div class="display-button oct dec dec hex" data-value="~">
+                NOT
+              </div>
+              <div class="display-button oct dec dec hex" data-value="**">
+                **
+              </div>
+            </div>
             <div class="random-setting">
               <img
                 src="images/svg/3x3plus1.svg"
@@ -71,12 +93,8 @@
                 alt="3x3plus1icon"
               />
             </div>
-            <div class="random-setting">
-              <img
-                src="images/svg/2x2plus1.svg"
-                width="30"
-                alt="2x2plus1icon"
-              />
+            <div class="random-setting" id="x22rs">
+              BIN
             </div>
             <div class="random-setting">
               <div>QWORD</div>
@@ -91,9 +109,10 @@
 
           <div id="buttons-grid">
             <!--            TODO render buttons dynamically-->
+
             <div class="display-button hex" data-value="A">A</div>
-            <div class="display-button bin" data-value="<<"><<</div>
-            <div class="display-button bin" data-value=">>">>></div>
+            <div class="display-button oct bin dec hex" data-value="<<"><<</div>
+            <div class="display-button oct bin dec hex" data-value=">>">>></div>
             <div
               class="display-button com"
               id="button-clear-input"
@@ -108,6 +127,7 @@
                 alt="Backspace"
               />
             </div>
+
             <div class="display-button hex" data-value="B">B</div>
             <div class="display-button com" data-value="(">(</div>
             <div class="display-button com" data-value=")">)</div>
@@ -134,7 +154,7 @@
               &plusmn
             </div>
             <div class="display-button bin oct hex dec" data-value="0">0</div>
-            <div class="display-button com" data-value=".">.</div>
+            <div class="display-button" data-value=".">.</div>
             <div class="display-button com" data-value="=">=</div>
           </div>
         </div>
