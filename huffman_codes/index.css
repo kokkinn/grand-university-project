@@ -1,0 +1,75 @@
+body {
+  height: 100vh;
+}
+.node {
+  stroke: none;
+  fill: var(--primary-dark);
+  /*r: 6px;*/
+}
+#app-title {
+  text-align: center;
+  margin: 1rem;
+}
+
+#input-label {
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+#input-str {
+  font-size: 1.5rem;
+  width: 30rem;
+  margin: 0 auto;
+  border: none;
+  background: var(--primary-light);
+  padding: 0.5rem;
+  transition: background-color 0.1s ease-in-out;
+}
+#input-str:hover {
+  background-color: var(--neutral);
+}
+#output-data {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  flex-direction: column;
+  margin:0  1rem ;
+}
+#encoded-string {
+  word-break: break-word;
+}
+#encoded-string:after {
+  content: "\00a0";
+}
+#decoded-string {
+  word-break: break-word;
+}
+#decoded-string:after {
+  content: "\00a0";
+}
+.link {
+  fill: none;
+  stroke: var(--primary-light);
+  stroke-width: 1px;
+}
+
+svg {
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+#header-p1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*padding: 2rem;*/
+}
+header{
+  display: block;
+}
+
+@media  (max-width: 678px) {
+  #input-str{
+    width: 90%;
+  }
+}
