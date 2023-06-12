@@ -7,6 +7,10 @@
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?z=es6"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="index.js" defer></script>
+
     <script
       id="MathJax-script"
       async
@@ -27,34 +31,265 @@
     <title>Document</title>
   </head>
   <body>
-    <header>Задача Ф2066 із журналу "Квант" (2008 №1)</header>
+    <header>
+      <h1 id="title">Problem F2066 from magazine "Quant" (2008 №1)</h1>
+    </header>
     <main>
-      <b>Ф22066.</b>Тележки с массами m = 1 кг и М = 2кг связаны легким упргугим
-      шнуром длиной $L = 0,3 м$. Вначале телешки неподвижны, а шнур почти
-      натянут. Легкой тележке ударом сообщают скорость $\upsilon_{0}$ = м/c в
-      направлении соединяющего их шнура (рис.1). Через какое время произойдет
-      удар тележен друг о друга? Жесткость шнура $k = 20\,H/м$. Центр масс
-      тележек все время движется со скоростью $$u_{ц} = \upsilon\frac{m}{M +
-      m}.$$ Пересядем в эту систему отсчета. Точка шнура, которая делит длину в
-      отношении $\frac{l_{1}}{l_{2}}=\frac{M}{m}$, как раз и есть центр масс,
-      $\upsilon_{ц}$ - это ее скорость (рис.2). Жесткость куска шнуа длиной
-      $l_{1}$ равна
-      $$k_{1}=k\frac{l_{1}+l_{2}}{l_{1}}=k\left(1+\frac{m}{M}\right).$$ и шнур
-      остается нятянутым в течении интервала времени
-      $$\tau_{1}=\frac{1}{2}T_{1}=\frac{\pi}{\omega_{1}}=\frac{\pi}{\sqrt{\frac{k_{1}}{m}}}=\pi\sqrt{\frac{mM}{k(M
-      + m)}}.$$ После этого шнур уже не влияет на движение системы (до удара тел
-      - уже точно!), тела едут навстречу друг друга со скоростями $\upsilon_{1}$
-      и $\upsilon_{2}$ , которые можно найти из уравнений (мы все еще находимся
-      в системе связанной с центром масс), описывающих законы сохранения
-      импульса и энэргии: $$ \begin{cases} mu_{1}=Mu_{2}\\ \frac{mu^2_{1}}{2} +
-      \frac{Mu^2_{2}}{2} = \frac{(m(\upsilon_{0} - u_{ц})^2}{2} \end{cases} $$
-      Можео, конечно, решать эту систему, но можно и вспомнить, что
-      относительная скорость тел после абсолюьно упругого лобового удара (а это
-      - наш случай) остается неизменой, т.е. равной $\upsilon_{0}$, а длинна шнура в тот
-      момент, когда он станет не натянут, равна $l$. Тогда полное время до удара
-      будет равно
-      $$t=\tau+\frac{1}{\upsilon_{0}}=\pi\sqrt{\frac{mM}{k(M+m)}}+\frac{1}{\upsilon_{0}}=0,7
-      \,c$$ Р.Александров
+      <div id="root">
+        <b>Ф22066. </b>Carts with masses $m = 1\,kg$ and $M = 2\,kg$ are
+        connected by a light elastic cord $L = 0.3 \,m$ long. At first, the
+        carts are motionless, and the cord almost pulled. A light cart is given
+        a speed $\upsilon_{0} = 2\,m/s$ in direction
+        <div class="svg-container">
+          <?xml version="1.0" encoding="utf-8" ?>
+          <svg viewBox="0 0 512 128">
+            <line
+              x1="0"
+              y1="107"
+              x2="512"
+              y2="107"
+              stroke="black"
+              stroke-width="6"
+            />
+            <line
+              x1="138"
+              y1="82"
+              x2="362"
+              y2="82"
+              stroke="black"
+              stroke-width="4"
+            />
+            <rect
+              width="48"
+              height="48"
+              x="90"
+              y="57"
+              style="
+                fill: rgb(255, 255, 255, 0);
+                stroke-width: 6;
+                stroke: rgb(0, 0, 0);
+              "
+            />
+            <rect
+              width="124"
+              height="58"
+              x="362"
+              y="47"
+              style="
+                fill: rgb(255, 255, 255);
+                stroke-width: 6;
+                stroke: rgb(0, 0, 0);
+              "
+            />
+
+            <path d="M 80,75 L 20,75" stroke="#E60A8BFF" stroke-width="5" />
+
+            <path
+              d="M18,75 L34,62 L18,75, L34, 88"
+              stroke="#E60A8BFF"
+              stroke-width="6"
+            />
+              <foreignObject x="103" y="30" width="45" height="20">
+                <div>$m$</div>
+              </foreignObject>
+              <foreignObject x="415" y="10" width="45" height="30">
+                <div>$M$</div>
+              </foreignObject>
+            <foreignObject x="38" y="48" width="50" height="30">
+              <div>$\upsilon_{0}$</div>
+            </foreignObject>
+            <rect
+              width="512"
+              height="20"
+              x="0"
+              y="108"
+              style="
+                fill: rgb(223, 223, 225);
+                /*stroke-width: 3;*/
+                /*stroke: rgb(0, 0, 0);*/
+              "
+            />
+          </svg>
+          <span><i>Fig. 1</i></span>
+        </div>
+        the cord connecting them (Fig. 1). How long will it take for the carts
+        to hit about each other? Cord stiffness $k = 20\,H/m$.
+        <p style="clear: both">
+          Center of mass of bogies all time moves with the speed $$u_{ц} =
+          \upsilon\frac{m}{M + m}.$$
+        </p>
+        Let's move to this frame of reference. The point of the cord that
+        divides the length into with respect to
+        <div class="svg-container2">
+          <svg viewBox="0 0 512 194" xmlns="http://www.w3.org/2000/svg">
+            <rect
+              width="512"
+              height="20"
+              x="50"
+              y="95"
+              style="
+                fill: rgb(223, 223, 225);
+                /*stroke-width: 3;*/
+                /*stroke: rgb(0, 0, 0);*/
+              "
+            />
+            <line
+              x1="50"
+              y1="92"
+              x2="512"
+              y2="92"
+              stroke="black"
+              stroke-width="6"
+            />
+            <line
+              x1="140"
+              y1="70"
+              x2="382"
+              y2="70"
+              stroke="black"
+              stroke-width="4"
+            />
+
+            <rect
+              width="40"
+              height="40"
+              x="100"
+              y="50"
+              style="
+                fill: rgb(255, 255, 255, 0);
+                stroke-width: 6;
+                stroke: rgb(0, 0, 0);
+              "
+            />
+            <line
+              x1="140"
+              y1="94"
+              x2="140"
+              y2="155"
+              stroke="black"
+              stroke-width="4"
+            />
+
+            <foreignObject x="225" y="160" width="50" height="50">
+              <div style="font-size: 2rem; color: black">$l_{1}$</div>
+            </foreignObject>
+            <foreignObject x="335" y="160" width="50" height="50">
+              <div style="font-size: 2rem; color: black">$l_{2}$</div>
+            </foreignObject>
+
+            <line
+              x1="380"
+              y1="94"
+              x2="380"
+              y2="155"
+              stroke="black"
+              stroke-width="4"
+            />
+            <line
+              x1="300"
+              y1="94"
+              x2="300"
+              y2="155"
+              stroke="black"
+              stroke-width="4"
+            />
+            <circle r="5" cy="70" cx="300" />
+            <defs>
+              <!-- A marker to be used as an arrowhead -->
+              <marker
+                id="arrow"
+                viewBox="0 0 10 10"
+                refX="5"
+                refY="5"
+                markerWidth="5"
+                markerHeight="20"
+                orient="auto-start-reverse"
+              >
+                <path d="M 0 0 L 10 5 L 0 10 z" />
+              </marker>
+            </defs>
+            <line
+              marker-start="url(#arrow)"
+              marker-end="url(#arrow)"
+              x1="145"
+              y1="150"
+              x2="295"
+              y2="150"
+              stroke="black"
+              stroke-width="4"
+            />
+            <line
+              marker-start="url(#arrow)"
+              marker-end="url(#arrow)"
+              x1="305"
+              y1="150"
+              x2="375"
+              y2="150"
+              stroke="black"
+              stroke-width="4"
+            />
+            <rect
+              width="100"
+              height="58"
+              x="380"
+              y="32"
+              style="
+                fill: rgb(255, 255, 255);
+                stroke-width: 6;
+                stroke: rgb(0, 0, 0);
+              "
+            />
+
+            <path d="M 70,75 L 13,75" stroke="#E60A8BFF" stroke-width="6" />
+
+            <path
+              d="M10,75 L26,62 L10,75, 26, 88"
+              stroke="#E60A8BFF"
+              stroke-width="6"
+            />
+
+            <foreignObject x="105" y="25" width="45" height="20">
+              <div style="font-size: 2rem; color: black">$m$</div>
+            </foreignObject>
+            <foreignObject x="415" y="1" width="45" height="30">
+              <div style="font-size: 2rem; color: black">$M$</div>
+            </foreignObject>
+            <foreignObject x="38" y="48" width="50" height="30">
+              <div style="font-size: 2rem; color: black">$\upsilon_{0}$</div>
+            </foreignObject>
+            <foreignObject x="285" y="25" width="50" height="50">
+              <div style="font-size: 2rem; color: black">$ц_{м}$</div>
+            </foreignObject>
+          </svg>
+          <span><i>Fig. 2</i></span>
+        </div>
+        $\frac{l_{1}}{l_{2}}=\frac{M}{m}$, there is center of mass,
+        $\upsilon_{ц}$ is its speed (fig.2). Piece stiffness a snua of length
+        $l_{1}$ is equal to
+        <br />
+
+        <div style="clear: both">
+          $$k_{1}=k\frac{l_{1}+l_{2}}{l_{1}}=k\left(1+\frac{m}{M}\right),$$
+        </div>
+        and cord remains stretched for a period of time
+        $$\tau_{1}=\frac{1}{2}T_{1}=\frac{\pi}{\omega_{1}}=\frac{\pi}{\sqrt{\frac{k_{
+        1}}{m}}}=\pi\sqrt{\frac{mM}{k(M + m)}}.$$ After that, the cord no longer
+        affects the movement of the system (before impact bodies - already for
+        sure!), bodies go towards each other with speeds $\upsilon_{1}$ and
+        $\upsilon_{2}$ , which can be found from the equations (we are still in
+        a system related to the center of mass) describing laws of conservation
+        of momentum and energy: $$ \begin{cases} mu_{1}=Mu_{2},\\
+        \frac{mu^2_{1}}{2} + \frac{Mu^2_{2}}{2} = \frac{(m(\upsilon_{0} -
+        u_{c})^2}{2} + \frac{Mu^2_{ц}}{2}. \end{cases}$$ You can, of course,
+        solve this system, but you can and remember that the relative velocity
+        of bodies after an absolutely elastic frontal impact (and this is our
+        case) remains unchanged, i.e. equal $\upsilon_{0}$, and the length of
+        the cord at the moment when it becomes loose, is equal to $l$. Then the
+        total time to impact will be equal to
+        $$t=\tau+\frac{1}{\upsilon_{0}}=\pi\sqrt{\frac{mM}{k(M+m)}}+\frac{1}{\upsilon_{0}
+        }=0.7\,c.$$
+        <div style="text-align: right; font-style: italic">P. Aleksandrov</div>
+      </div>
     </main>
     <footer></footer>
   </body>

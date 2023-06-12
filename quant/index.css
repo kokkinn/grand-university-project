@@ -1,3 +1,58 @@
-body {
-    /*font-family: Candara, sans-serif;*/
+main {
+  display: flex;
+  justify-content: center;
+  text-align: justify;
 }
+#root {
+  width: 30rem;
+}
+#title {
+  font-size: 1.37rem;
+  text-align: center;
+  padding: 1rem;
+}
+body {
+  /*font-family: Candara, sans-serif;*/
+  box-sizing: border-box;
+}
+
+.svg-container {
+  display: flex;
+  flex-direction: column;
+  float: right;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  width: 50%;
+  /*resize: both;*/
+  overflow: auto;
+  /*border: 0.5px dashed #aaa;*/
+}
+.svg-container2 {
+  display: flex;
+  flex-direction: column;
+  float: left;
+  padding: 0.5rem;
+  width: 50%;
+  /*resize: both;*/
+  /*overflow: auto;*/
+  /*border: 0.5px dashed #aaa;*/
+}
+svg {
+  /*margin: 0 25%;*/
+  /*border: red solid 1px;*/
+  /*width: 95%;*/
+  /*height: 95%;*/
+}
+
+foreignObject div {
+  font-size: 2rem;
+  color: black;
+  position: fixed;
+/*position: sticky;*/
+  /*overflow: visible;*/
+  /*display: contents;*/
+  /*width: 50px;*/
+  /*height: 50px;*/
+}
+
+
