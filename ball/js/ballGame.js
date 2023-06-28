@@ -72,10 +72,10 @@ export class BallGame {
                 this.ballObject.y + this.ballObject.yDirection < 0
                     ? 0
                     : this.containerObject.height - this.ballObject.diameter;
-            this.ballObject.xDirection = randomIntFromInterval(-20 ,20);
+            // this.ballObject.xDirection = randomIntFromInterval(-20 ,20);
             this.ballObject.yDirection = -this.ballObject.yDirection;
             this.ballObject.yDirection =
-                randomIntFromInterval(1, 20) *
+                randomIntFromInterval(1, 5) *
                 (this.ballObject.yDirection / Math.abs(this.ballObject.yDirection));
             const unitVector = getUnitVector(
                 this.ballObject.xDirection,
@@ -96,10 +96,10 @@ export class BallGame {
                 this.ballObject.x + this.ballObject.xDirection < 0
                     ? 0
                     : this.containerObject.width - this.ballObject.diameter;
-            this.ballObject.yDirection = randomIntFromInterval(-20 ,20);
+            // this.ballObject.yDirection = randomIntFromInterval(-20 ,20);
             this.ballObject.xDirection = -this.ballObject.xDirection;
             this.ballObject.xDirection =
-                randomIntFromInterval(1, 20) *
+                randomIntFromInterval(1, 5) *
                 (this.ballObject.xDirection / Math.abs(this.ballObject.xDirection));
             const unitVector = getUnitVector(
                 this.ballObject.xDirection,
