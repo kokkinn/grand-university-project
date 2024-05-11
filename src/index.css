@@ -1,0 +1,55 @@
+:root {
+    font-size: 16px;
+}
+
+body {
+    height: 100svh;
+}
+
+main {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul li {
+    text-align: right;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 2rem;
+    transition: transform 0.2s ease-in-out;
+}
+
+ul li a {
+    /*border: red solid;*/
+}
+
+ul li:hover {
+    transform: rotateZ(10deg);
+}
+
+ul li a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 2.3rem;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internest Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+@media (max-width: 500px) {
+    ul li a{
+        font-size: 1.8rem;
+    }
+}
